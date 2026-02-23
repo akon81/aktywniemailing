@@ -10,83 +10,118 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+ 
+  <style>
+    /* Custom smooth transitions */
+    .nav-link { transition: color 0.2s; }
+    .nav-link:hover { color: #9D7B6F; }
+    .btn-transition { transition: opacity 0.2s, transform 0.15s; }
+    .btn-transition:hover { opacity: 0.9; transform: translateY(-1px); }
+    .plan-card { transition: box-shadow 0.3s, transform 0.3s; }
+    .plan-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.10); transform: translateY(-4px); }
+    /* Mobile menu */
+    #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s; overflow: hidden; max-height: 0; opacity: 0; }
+    #mobile-menu.open { max-height: 300px; opacity: 1; }
+    /* Fade-in on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Toast notification */
+    #toast { transition: opacity 0.4s, transform 0.4s; opacity: 0; transform: translateY(16px); pointer-events: none; }
+    #toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
 </head>
-<body class="relative bg-stone-50 text-stone-800 overflow-x-hidden">
 
-    {{-- ═══════════════════════════════════════════
-         HEADER / NAV
-    ═══════════════════════════════════════════ --}}
-    <header class="relative z-10 py-2 px-2 bg-gold">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div>
-                <img src="{{ asset('img/aktywniedlasiebie_logo_biale_wector.svg') }}" alt="Aktywnie dla Siebie" class="h-28">
-            </div>
+<body class="bg-h-bg font-sora text-h-dark antialiased">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header id="site-header" class="sticky top-0 z-50 bg-h-bg/95 backdrop-blur-sm border-b border-h-light/40">
+    <div class="max-w-[1440px] mx-auto px-16 py-6 flex items-center justify-between">
+
+      <!-- Logo -->
+      <div>
+            <img src="{{ asset('img/aktywniedlasiebie_logo.png') }}" alt="Aktywnie dla Siebie" class="h-18">
+        </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#o-programie" class="nav-link text-[13px] text-h-gray">O programie</a>
+        <a href="#korzysci"    class="nav-link text-[13px] text-h-gray">Korzyści</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <a href="#zapisz-sie"
+         class="hidden md:inline-flex items-center rounded-sm bg-gold-dark text-white text-[13px] font-medium px-6 py-3 btn-transition">
+        Zapisz się
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-h-dark transition-all duration-300" id="ham1"></span>
+        <span class="block w-6 h-0.5 bg-h-dark transition-all duration-300" id="ham2"></span>
+        <span class="block w-6 h-0.5 bg-h-dark transition-all duration-300" id="ham3"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden bg-h-bg border-t border-h-light/40">
+      <div class="flex flex-col px-8 py-6 gap-5">
+        <a href="#o-programie" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">O programie</a>
+        <a href="#korzysci"    class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Korzyści</a>
+        <a href="#zapisz-sie"
+           class="inline-flex items-center justify-center rounded-sm bg-gold-dark text-white text-sm font-medium px-6 py-3 btn-transition"
+           onclick="closeMobileMenu()">
+          Zapisz się
+        </a>
+      </div>
+    </div>
+  </header>
+
+   <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section id="o-programie" class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+
+    <!-- Left -->
+    <div class="flex-1 flex flex-col gap-8 reveal">
+      <h1 class="text-4xl md:text-5xl lg:text-[56px] font-medium leading-[1.1] text-h-dark">
+        Odkryj spokój i siłę<br>Twojego ciała
+      </h1>
+      <p class="text-base md:text-lg text-h-gray leading-[1.6] max-w-2xl">
+        Dołącz do strefy premium z ćwiczeniami Pilates i relaksacji, stworzonej specjalnie dla kobiet&nbsp;40+.
+        Poczuj różnicę już od pierwszego tygodnia.
+      </p>
+
+      <!-- Form -->
+      <div class="flex flex-col gap-4 max-w-[380px]">
+        <p class="font-mono text-[13px] font-medium text-h-dark tracking-wide">Zapisz się na listę mailingową</p>
+          <div class="flex flex-col gap-4">
             <a href="#zapisz-sie"
-               class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-white
-                      hover:text-gold-light transition-colors duration-200 tracking-wide">
-                Zapisz się
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+              class="h-[52px] rounded-sm bg-gold-dark text-white text-[15px] font-medium flex items-center justify-center btn-transition">
+              Zapisz się bezpłatnie
             </a>
-        </div>
-    </header>
+          </div>
+      </div>
 
-    {{-- ═══════════════════════════════════════════
-         HERO SECTION
-    ═══════════════════════════════════════════ --}}
-    <section class="relative pt-16 pb-24 px-6 overflow-hidden bg-stone-50">
-        {{-- Parallax Background --}}
-        <div class="hero-parallax" id="heroParallax">
-            <img src="{{ asset('img/hero/hero.jpg') }}" alt="" class="hero-parallax-image" id="heroImage">
-        </div>
-        
-        <div class="max-w-3xl mx-auto text-center relative z-10">
+      <p class="text-[13px] text-h-gray">✓ Bądź na bieżąco z postępami prac nad strefą premium</p>
+    </div>
 
-            <div class="ornament-line flex items-center gap-4 justify-center mb-8 text-gold opacity-0 animate-[fadeIn_0.6s_ease_both]">
-                <span class="text-xs font-semibold tracking-[0.25em] uppercase text-gray-700">
-                    Już wkrótce
-                </span>
-            </div>
+    <!-- Right – hero image -->
+    <div class="flex-1 rounded-sm overflow-hidden min-h-[320px] md:min-h-[500px] reveal">
+      <img src="{{ asset('img/hero/hero.jpg') }}" alt="Kobieta ćwicząca Pilates" class="w-full h-full min-h-[320px] md:min-h-[500px] object-cover" />
+    </div>
+  </section>
 
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl text-shadow-gray-800 leading-[1.1] mb-6 opacity-0 animate-[fadeUp_0.8s_ease_both] [text-shadow:0_2px_8px_rgba(0,0,0,0.1),0_4px_16px_rgba(0,0,0,0.08)]">
-                Ruch, który<br>
-                <em class="text-gold">zmienia życie</em><br>
-                po czterdziestce
-            </h1>
-
-            <p class="text-lg sm:text-xl text-shadow-gray-600 leading-relaxed max-w-xl mx-auto mb-10 font-light opacity-0 animate-[fadeUp_0.8s_ease_both_0.2s] [text-shadow:0_2px_8px_rgba(0,0,0,0.1),0_4px_16px_rgba(0,0,0,0.08)]">
-                Strefa premium z ćwiczeniami video stworzona specjalnie dla kobiet 40+.
-                Bez presji. Bez kompromisów. Z prawdziwą zmianą.
-            </p>
-
-            {{-- CTA button scrolls down --}}
-            <a href="#zapisz-sie"
-               class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-white
-                      font-semibold tracking-wide px-10 py-4 rounded-xl
-                      transition-all duration-300 hover:shadow-xl hover:shadow-gold/20
-                      hover:-translate-y-1 opacity-0 animate-[fadeUp_0.8s_ease_both_0.3s]">
-                Zarezerwuj swoje miejsce
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-            </a>
-
-            <p class="mt-4 text-xs text-shadow-gray-500 tracking-wide opacity-0 animate-[fadeUp_0.8s_ease_both_0.4s]">
-                Bez zobowiązań · Dla Ciebie
-            </p>
-
-        </div>
-    </section>
 
     {{-- ═══════════════════════════════════════════
          SECTION: CO OTRZYMASZ
     ═══════════════════════════════════════════ --}}
-    <section class="relative z-10 py-24 px-6 bg-white">
+    <section id="korzysci" class="relative z-10 py-24 px-6 bg-white">
         <div class="max-w-5xl mx-auto">
 
             <div class="text-center mb-16">

@@ -10,6 +10,18 @@
 
 @theme {
     --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sora: 'Sora', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+    --color-h-dark: #2D2D2D;
+    --color-h-dark2: #3D3D3D;
+    --color-h-primary: #9D7B6F;
+    --color-h-medium: #B8A99A;
+    --color-h-light: #D4C5BC;
+    --color-h-bg: #F7F6F3;
+    --color-h-section: #EFEBE7;
+    --color-h-gray: #6B7280;
+    --color-h-gray-light: #9CA3AF;
 
     --color-gold: #b38f6e;
     --color-gold-light: #d4b9a0;

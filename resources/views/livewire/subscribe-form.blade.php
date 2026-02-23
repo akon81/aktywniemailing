@@ -64,9 +64,9 @@
             {{-- SUBMIT --}}
             <button
                 type="submit"
-                class="w-full bg-gold hover:bg-gold-dark text-white font-semibold tracking-wide
-                       py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-gold/20
-                       hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"
+                class="w-full bg-gold-dark text-white font-semibold tracking-wide
+                       py-4 rounded-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/20
+                       hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 btn-transition"
             >
                 <span wire:loading.remove>Dołącz do listy</span>
                 <span wire:loading class="flex items-center gap-2">

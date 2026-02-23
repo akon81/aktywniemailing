@@ -50,8 +50,8 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
+          <a href="#korzysci"    class="nav-link text-[13px] text-h-gray">Korzyści</a>
         <a href="#o-programie" class="nav-link text-[13px] text-h-gray">O programie</a>
-        <a href="#korzysci"    class="nav-link text-[13px] text-h-gray">Korzyści</a>
       </nav>
 
       <!-- Desktop CTA -->
@@ -71,8 +71,8 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden bg-h-bg border-t border-h-light/40">
       <div class="flex flex-col px-8 py-6 gap-5">
+        <a href="#korzysci" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Korzyści</a>
         <a href="#o-programie" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">O programie</a>
-        <a href="#korzysci"    class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Korzyści</a>
         <a href="#zapisz-sie"
            class="inline-flex items-center justify-center rounded-sm bg-gold-dark text-white text-sm font-medium px-6 py-3 btn-transition"
            onclick="closeMobileMenu()">
@@ -85,7 +85,7 @@
    <!-- ============================================================
        HERO
        ============================================================ -->
-  <section id="o-programie" class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+  <section class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
     <!-- Left -->
     <div class="flex-1 flex flex-col gap-8 reveal">
@@ -134,9 +134,9 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
+                    <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M15 10l4.553-2.069A1 1 0 0121 8.82V15a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
                         </svg>
@@ -147,9 +147,9 @@
                     </p>
                 </div>
 
-                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
+                    <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
@@ -160,9 +160,9 @@
                     </p>
                 </div>
 
-                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
+                    <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                         </svg>
@@ -173,9 +173,9 @@
                     </p>
                 </div>
 
-                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
+                    <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
                         </svg>
@@ -186,9 +186,9 @@
                     </p>
                 </div>
 
-                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
+                    <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
@@ -199,9 +199,9 @@
                     </p>
                 </div>
 
-                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-[20px] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(179,143,110,0.1)]">
+                    <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
@@ -236,6 +236,80 @@
         </div>
     </section>
 
+
+     <!-- ============================================================
+       BENEFITS
+       ============================================================ -->
+  <section id="o-programie" class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-24 flex flex-col gap-14">
+
+    <!-- Header -->
+    <div class="flex flex-col items-center gap-4 text-center reveal">
+      <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Dla kogo jest program</p>
+      <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
+        Twoja transformacja zaczyna się tutaj
+      </h2>
+      <p class="text-base md:text-lg text-h-gray max-w-xl">
+        Program stworzony z myślą o Tobie — łącząc ruch, oddech i spokój umysłu
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Benefit 1 – Gibkość i siła -->
+      <div class="plan-card flex flex-col gap-6 p-10 rounded-sm border border-h-light/60 bg-white reveal">
+        <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+          <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="text-[20px] font-medium text-h-dark">Gibkość i siła</h3>
+          <p class="text-[15px] text-h-gray leading-[1.6]">
+            Wzmocnij mięśnie głębokie i popraw elastyczność ciała dzięki regularnym ćwiczeniom Pilates
+            dostosowanym do Twoich możliwości.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 2 – Spokój umysłu -->
+      <div class="plan-card flex flex-col gap-6 p-10 rounded-sm border border-h-light/60 bg-white reveal">
+        <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+          <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="text-[20px] font-medium text-h-dark">Spokój umysłu</h3>
+          <p class="text-[15px] text-h-gray leading-[1.6]">
+            Techniki relaksacji i mindfulness pomogą Ci odnaleźć wewnętrzny spokój i lepiej radzić sobie
+            ze stresem codzienności.
+          </p>
+        </div>
+      </div>
+
+      <!-- Benefit 3 – Energia na co dzień -->
+      <div class="plan-card flex flex-col gap-6 p-10 rounded-sm border border-h-light/60 bg-white reveal">
+        <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+          <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="text-[20px] font-medium text-h-dark">Energia na co dzień</h3>
+          <p class="text-[15px] text-h-gray leading-[1.6]">
+            Poczuj przypływ energii i pewności siebie. Regularna praktyka pomoże Ci czuć się młodziej
+            i bardziej witalne każdego dnia.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
     {{-- ═══════════════════════════════════════════
          SECTION: SIGN UP FORM
     ═══════════════════════════════════════════ --}}
@@ -265,8 +339,12 @@
     {{-- ═══════════════════════════════════════════
          FOOTER
     ═══════════════════════════════════════════ --}}
-    <footer class="relative z-10 py-12 px-6 bg-stone-900 text-stone-400">
-        <div class="max-w-4xl mx-auto text-center">
+    <footer class="relative z-10 py-12 px-6 bg-stone-900 text-stone-400 overflow-hidden">
+        {{-- Decorative gold lines --}}
+        <div class="absolute inset-0 opacity-5"
+             style="background-image: repeating-linear-gradient(45deg, #c9a84c 0, #c9a84c 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+
+        <div class="relative max-w-4xl mx-auto text-center">
             <div class="text-2xl text-stone-300 mb-3">
                 Aktywnie dla siebie <span class="text-gold">Strefa Premium</span>
             </div>

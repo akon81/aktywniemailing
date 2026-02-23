@@ -252,15 +252,21 @@
         </div>
 
         {{-- Footer --}}
+        {{-- Footer --}}
         <div class="footer">
             <div class="footer-lines"></div>
             <div class="footer-inner">
                 <p class="brand">Aktywnie dla Siebie · Strefa Premium</p>
                 <p>
-                    Otrzymałaś tę wiadomość, ponieważ zapisałaś się na listę oczekujących.<br>
-                    Jeśli to pomyłka, możesz zignorować tego maila.
+                    Otrzymałaś tę wiadomość, ponieważ zapisałaś się na listę oczekujących.
                 </p>
-                <p style="margin-top: 6px;">© {{ date('Y') }} Aktywnie dla Siebie · Wszelkie prawa zastrzeżone</p>
+                <p style="margin-top: 10px;">
+                    <a href="{{ URL::signedRoute('unsubscribe', ['email' => $subscriber->email]) }}"
+                       style="color: #9D7B6F; text-decoration: underline; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em;">
+                        Wypisz się z listy
+                    </a>
+                </p>
+                <p style="margin-top: 8px;">© {{ date('Y') }} Aktywnie dla Siebie · Wszelkie prawa zastrzeżone</p>
             </div>
         </div>
 

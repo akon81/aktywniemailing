@@ -30,7 +30,7 @@
                         placeholder="Twoje imię"
                         autocomplete="given-name"
                         class="w-full bg-white/60 border @error('name') border-rose-300 @else border-stone-200 @enderror
-                               rounded-xl px-4 py-3.5 text-stone-700 placeholder-stone-300
+                               rounded-sm px-4 py-3.5 text-stone-700 placeholder-stone-300
                                focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold/50
                                transition-all duration-200"
                     >
@@ -51,7 +51,7 @@
                         placeholder="twoj@email.pl"
                         autocomplete="email"
                         class="w-full bg-white/60 border @error('email') border-rose-300 @else border-stone-200 @enderror
-                               rounded-xl px-4 py-3.5 text-stone-700 placeholder-stone-300
+                               rounded-sm px-4 py-3.5 text-stone-700 placeholder-stone-300
                                focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold/50
                                transition-all duration-200"
                     >

@@ -298,7 +298,7 @@
       </div>
 
       {{-- Livewire Form --}}
-      <div class="bg-white/70 backdrop-blur-sm border border-stone-100 rounded-2xl p-8 shadow-xl shadow-stone-200/50">
+      <div class="bg-white/70 backdrop-blur-sm border border-stone-100 rounded-sm p-8 shadow-xl shadow-stone-200/50">
         @livewire('subscribe-form')
       </div>
 

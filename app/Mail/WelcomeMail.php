@@ -20,7 +20,7 @@ class WelcomeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Witaj na liście! Twoje miejsce jest zarezerwowane ✨',
+            subject: 'Witaj na liście! Twoje miejsce jest zarezerwowane',
         );
     }
 

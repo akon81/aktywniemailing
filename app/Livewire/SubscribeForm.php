@@ -4,27 +4,30 @@ namespace App\Livewire;
 
 use App\Mail\WelcomeMail;
 use App\Models\Subscriber;
-use Livewire\Component;
 use Illuminate\Support\Facades\Mail;
+use Livewire\Component;
 
 class SubscribeForm extends Component
 {
     public string $name = '';
+
     public string $email = '';
+
     public bool $submitted = false;
+
     public ?string $errorMessage = null;
 
     protected array $rules = [
-        'name'  => 'required|min:2|max:100',
-        'email' => 'required|email|max:255|unique:subscribers,email',
+        'name' => 'required|min:2|max:100',
+        'email' => 'required|email|max:255|unique:subscribers,email,NULL,id,status,confirmed',
     ];
 
     protected array $messages = [
-        'name.required'  => 'Imię jest wymagane.',
-        'name.min'       => 'Imię musi mieć co najmniej 2 znaki.',
+        'name.required' => 'Imię jest wymagane.',
+        'name.min' => 'Imię musi mieć co najmniej 2 znaki.',
         'email.required' => 'Adres email jest wymagany.',
-        'email.email'    => 'Podaj prawidłowy adres email.',
-        'email.unique'   => 'Ten adres email jest już na liście. Do zobaczenia wkrótce!',
+        'email.email' => 'Podaj prawidłowy adres email.',
+        'email.unique' => 'Ten adres email jest już na liście. Do zobaczenia wkrótce!',
     ];
 
     public function submit(): void
@@ -33,11 +36,20 @@ class SubscribeForm extends Component
 
         $this->validate();
 
-        $subscriber = Subscriber::create([
-            'name'   => $this->name,
-            'email'  => $this->email,
-            'status' => 'confirmed',
-        ]);
+        $subscriber = Subscriber::where('email', $this->email)->first();
+
+        if ($subscriber) {
+            $subscriber->update([
+                'name' => $this->name,
+                'status' => 'confirmed',
+            ]);
+        } else {
+            $subscriber = Subscriber::create([
+                'name' => $this->name,
+                'email' => $this->email,
+                'status' => 'confirmed',
+            ]);
+        }
 
         Mail::to($subscriber->email)->send(new WelcomeMail($subscriber));
 

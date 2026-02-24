@@ -10,10 +10,10 @@
         "herd": {
             "command": "php",
             "args": [
-                "C:/Users/euro/.config/herd/bin/herd-mcp.phar"
+                "C:/Users/Len3/.config/herd/bin/herd-mcp.phar"
             ],
             "env": {
-                "SITE_PATH": "C:\\Herd\\aktywniemailing"
+                "SITE_PATH": "C:\\Users\\Len3\\Herd\\aktywniemailing"
             }
         }
     }

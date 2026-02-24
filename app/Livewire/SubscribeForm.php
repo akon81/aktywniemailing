@@ -24,7 +24,7 @@ class SubscribeForm extends Component
         'name.min'       => 'Imię musi mieć co najmniej 2 znaki.',
         'email.required' => 'Adres email jest wymagany.',
         'email.email'    => 'Podaj prawidłowy adres email.',
-        'email.unique'   => 'Ten adres email jest już na liście. Do zobaczenia wkrótce! 🎉',
+        'email.unique'   => 'Ten adres email jest już na liście. Do zobaczenia wkrótce!',
     ];
 
     public function submit(): void

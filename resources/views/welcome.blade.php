@@ -28,8 +28,8 @@
 
       {{-- Desktop Nav --}}
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#korzysci"    class="nav-link text-[13px] text-h-gray">Korzyści</a>
-        <a href="#o-programie" class="nav-link text-[13px] text-h-gray">O programie</a>
+        <a href="#dlaczego-warto" class="nav-link text-[13px] text-h-gray">Dlaczego warto</a>
+        <a href="#korzysci"       class="nav-link text-[13px] text-h-gray">Co zawiera program</a>
       </nav>
 
       {{-- Desktop CTA --}}
@@ -49,8 +49,8 @@
     {{-- Mobile menu --}}
     <div id="mobile-menu" class="md:hidden bg-h-bg border-t border-h-light/40">
       <div class="flex flex-col px-8 py-6 gap-5">
-        <a href="#korzysci"    class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Korzyści</a>
-        <a href="#o-programie" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">O programie</a>
+        <a href="#dlaczego-warto" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Dlaczego warto</a>
+        <a href="#korzysci"       class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Co zawiera program</a>
         <a href="#zapisz-sie"
            class="inline-flex items-center justify-center rounded-sm bg-gold-dark text-white text-sm font-medium px-6 py-3 btn-transition"
            onclick="closeMobileMenu()">
@@ -93,7 +93,7 @@
   {{-- ============================================================
        SECTION: PROBLEM + OBIETNICA
        ============================================================ --}}
-  <section class="bg-h-section">
+  <section id="dlaczego-warto" class="bg-h-section">
     <div class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-24 flex flex-col gap-16">
 
       {{-- PROBLEM --}}
@@ -371,10 +371,9 @@
           </svg>
         </div>
         <div class="flex flex-col gap-3">
-          <h3 class="text-[20px] font-medium text-h-dark">Gibkość i siła</h3>
+          <h3 class="text-[20px] font-medium text-h-dark">Ruch (Pilates)</h3>
           <p class="text-[15px] text-h-gray leading-[1.6]">
-            Wzmocnij mięśnie głębokie i popraw elastyczność ciała dzięki regularnym ćwiczeniom Pilates
-            dostosowanym do Twoich możliwości.
+            Wzmocnij głębokie mięśnie i popraw elastyczność dzięki Pilates dopasowanemu do kobiet 40+.
           </p>
         </div>
       </div>
@@ -387,10 +386,9 @@
           </svg>
         </div>
         <div class="flex flex-col gap-3">
-          <h3 class="text-[20px] font-medium text-h-dark">Spokój umysłu</h3>
+          <h3 class="text-[20px] font-medium text-h-dark">Oddech i relaks</h3>
           <p class="text-[15px] text-h-gray leading-[1.6]">
-            Techniki relaksacji i mindfulness pomogą Ci odnaleźć wewnętrzny spokój i lepiej radzić sobie
-            ze stresem codzienności.
+            Praca z oddechem i relaksacją, która wycisza napięcie i przywraca wewnętrzną równowagę.
           </p>
         </div>
       </div>
@@ -403,15 +401,48 @@
           </svg>
         </div>
         <div class="flex flex-col gap-3">
-          <h3 class="text-[20px] font-medium text-h-dark">Energia na co dzień</h3>
+          <h3 class="text-[20px] font-medium text-h-dark">Systematyczność</h3>
           <p class="text-[15px] text-h-gray leading-[1.6]">
-            Poczuj przypływ energii i pewności siebie. Regularna praktyka pomoże Ci czuć się młodziej
-            i bardziej witalne każdego dnia.
+            Jasny plan, który wyrabia nawyk regularności — i przynosi realne, trwałe efekty.
           </p>
         </div>
       </div>
 
     </div>
+  </section>
+
+  {{-- ============================================================
+       SECTION: DLACZEGO TERAZ
+       ============================================================ --}}
+  <section class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-24 flex flex-col items-center gap-12">
+
+    {{-- Header --}}
+    <div class="flex flex-col items-center gap-4 text-center reveal">
+      <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Lista oczekujących</p>
+      <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
+        Dlaczego warto zapisać się teraz?
+      </h2>
+    </div>
+
+    {{-- Points --}}
+    <div class="flex flex-col w-full max-w-2xl gap-0">
+
+      @foreach([
+        ['Dostęp przed oficjalną premierą', 'Jako pierwsza dowiesz się o starcie i zyskasz dostęp, zanim program trafi do szerokiej sprzedaży.'],
+        ['Specjalna oferta tylko dla listy', 'Osoby zapisane otrzymają wyjątkowe warunki cenowe niedostępne nigdzie indziej.'],
+        ['Możliwość współtworzenia programu', 'Twoja opinia ma znaczenie — chcę, żeby program odpowiadał na Twoje realne potrzeby.'],
+      ] as $i => $item)
+      <div class="flex items-start gap-6 py-7 {{ $i > 0 ? 'border-t border-h-light/70' : '' }} reveal">
+        <span class="font-mono text-[11px] text-h-primary/50 mt-1 shrink-0 w-5 text-right">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
+        <div class="flex flex-col gap-1">
+          <p class="text-[16px] font-medium text-h-dark">{{ $item[0] }}</p>
+          <p class="text-[14px] text-h-gray leading-[1.7]">{{ $item[1] }}</p>
+        </div>
+      </div>
+      @endforeach
+
+    </div>
+
   </section>
 
   {{-- ============================================================

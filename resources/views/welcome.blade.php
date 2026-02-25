@@ -91,6 +91,103 @@
 
 
   {{-- ============================================================
+       SECTION: PROBLEM + OBIETNICA
+       ============================================================ --}}
+  <section class="bg-h-section">
+    <div class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-24 flex flex-col gap-16">
+
+      {{-- PROBLEM --}}
+      <div class="flex flex-col gap-12">
+
+        {{-- Header --}}
+        <div class="flex flex-col gap-4 reveal">
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Czy to o Tobie?</p>
+          <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
+            Znasz to uczucie?
+          </h2>
+        </div>
+
+        {{-- Pain points grid --}}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+
+          <div class="flex flex-col">
+            @foreach([
+              'Zaczynasz ćwiczyć, ale trudno Ci utrzymać regularność.',
+              'Brakuje Ci spokojnego planu dopasowanego do Twojego wieku.',
+              'Ciało nie reaguje już tak jak kiedyś — i nie wiesz dlaczego.',
+            ] as $i => $point)
+            <div class="flex items-start gap-5 py-5 {{ $i > 0 ? 'border-t border-h-light/70' : '' }} reveal">
+              <span class="font-mono text-[11px] text-h-primary/60 mt-1 shrink-0 w-5 text-right">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
+              <p class="text-[15px] text-h-gray leading-[1.7]">{{ $point }}</p>
+            </div>
+            @endforeach
+          </div>
+
+          <div class="flex flex-col">
+            @foreach([
+              'Pojawia się napięcie w plecach, sztywność, brak energii.',
+              'Chcesz ćwiczyć, ale nie wiesz od czego zacząć.',
+              'Masz wrażenie, że wszystkie programy online są dla kogoś innego.',
+            ] as $i => $point)
+            <div class="flex items-start gap-5 py-5 {{ $i > 0 ? 'border-t border-h-light/70' : '' }} reveal">
+              <span class="font-mono text-[11px] text-h-primary/60 mt-1 shrink-0 w-5 text-right">{{ str_pad($i + 4, 2, '0', STR_PAD_LEFT) }}</span>
+              <p class="text-[15px] text-h-gray leading-[1.7]">{{ $point }}</p>
+            </div>
+            @endforeach
+          </div>
+
+        </div>
+      </div>
+
+      {{-- Separator --}}
+      <div class="flex items-center gap-6 reveal">
+        <div class="flex-1 h-px bg-h-light"></div>
+        <div class="flex gap-1.5">
+          <div class="w-1.5 h-1.5 rounded-full bg-h-primary/30"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-h-primary/60"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-h-primary/30"></div>
+        </div>
+        <div class="flex-1 h-px bg-h-light"></div>
+      </div>
+
+      {{-- OBIETNICA --}}
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-20 reveal">
+
+        {{-- Left – statement --}}
+        <div class="flex flex-col gap-5 md:flex-1">
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Dlatego to tworzę</p>
+          <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
+            Strefę Premium<br>dla kobiet 40+
+          </h2>
+        </div>
+
+        {{-- Vertical divider (desktop only) --}}
+        <div class="hidden md:block w-px self-stretch bg-h-light/70"></div>
+
+        {{-- Right – description --}}
+        <div class="flex flex-col gap-6 md:flex-1">
+          <p class="text-[17px] text-h-dark font-medium leading-[1.6] italic">
+            "Bez presji. Bez przypadkowych treningów z internetu."
+          </p>
+          <p class="text-[15px] text-h-gray leading-[1.75]">
+            Z jasnym planem, spokojnym tempem i realnymi efektami —
+            dopasowanymi do ciała i rytmu życia kobiety po czterdziestce.
+          </p>
+          <a href="#zapisz-sie"
+             class="self-start inline-flex items-center gap-2 text-[13px] font-medium text-h-primary hover:text-h-dark transition-colors duration-200">
+            Dołącz do listy oczekujących
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  {{-- ============================================================
        SECTION: CO OTRZYMASZ
        ============================================================ --}}
   <section id="korzysci" class="relative z-10 py-24 px-6 bg-white">

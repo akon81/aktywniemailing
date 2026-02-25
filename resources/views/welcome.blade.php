@@ -473,21 +473,52 @@
   {{-- ============================================================
        FOOTER
        ============================================================ --}}
-  <footer class="relative z-10 py-12 px-6 bg-stone-900 text-stone-400 overflow-hidden">
+  <footer class="relative z-10 py-16 px-8 md:px-16 bg-stone-900 text-stone-400 overflow-hidden">
     {{-- Decorative gold lines --}}
     <div class="absolute inset-0 opacity-5 decorative-gold-lines"></div>
 
-    <div class="relative max-w-4xl mx-auto text-center">
-      <div class="text-2xl text-stone-300 mb-3">
-        Aktywnie dla siebie <span class="text-gold">Strefa Premium</span>
+    <div class="relative max-w-[1440px] mx-auto">
+
+      {{-- 3 bloki --}}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-stone-800">
+
+        {{-- Blok 1 – Marka --}}
+        <div class="flex flex-col gap-4">
+          <div>
+            <p class="text-stone-200 font-medium text-base">Aktywnie dla siebie</p>
+            <p class="text-gold text-sm">Strefa Premium dla kobiet 40+</p>
+          </div>
+          <p class="text-stone-500 text-sm leading-[1.7]">
+            Ćwiczenia Pilates i relaksacja online.<br>Start już wkrótce.
+          </p>
+        </div>
+
+        {{-- Blok 2 – Informacje --}}
+        <div class="flex flex-col gap-4">
+          <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">Informacje</p>
+          <nav class="flex flex-col gap-2">
+            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Polityka prywatności</a>
+            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Regulamin</a>
+            <a href="#zapisz-sie" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Kontakt</a>
+          </nav>
+        </div>
+
+        {{-- Blok 3 – Zaufanie --}}
+        <div class="flex flex-col gap-4">
+          <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">Kontakt</p>
+          <a href="mailto:kontakt@aktywniedlasiebie.pl"
+             class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">
+            kontakt@aktywniedlasiebie.pl
+          </a>
+        </div>
+
       </div>
-      <p class="text-sm text-stone-500 mb-6">
-        Ćwiczenia video dla kobiet 40+ · Już wkrótce
-      </p>
-      <div class="w-12 h-px bg-stone-700 mx-auto"></div>
-      <p class="text-xs text-stone-600 mt-6">
+
+      {{-- Copyright --}}
+      <p class="text-xs text-stone-600 mt-8">
         © {{ date('Y') }} Aktywnie dla siebie · Wszelkie prawa zastrzeżone
       </p>
+
     </div>
   </footer>
 

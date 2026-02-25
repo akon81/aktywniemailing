@@ -17,7 +17,7 @@
     @else
         {{-- FORM STATE --}}
         <form wire:submit="submit" class="space-y-4" novalidate>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4">
                 {{-- NAME --}}
                 <div>
                     <label for="name" class="block text-xs font-semibold tracking-widest uppercase text-stone-400 mb-2">
@@ -79,7 +79,7 @@
             </button>
 
             <p class="text-center text-xs text-stone-400 leading-relaxed">
-                Bez spamu. Tylko to, co ważne. Możesz się wypisać w dowolnym momencie.
+                Tylko informacje o strefie premium. Bez spamu. Możesz się wypisać w każdej chwili.
             </p>
         </form>
     @endif

@@ -63,27 +63,24 @@
   {{-- ============================================================
        HERO
        ============================================================ --}}
-  <section class="max-w-[1440px] mx-auto px-8 md:px-16 py-16 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+  <section class="max-w-[1440px] mx-auto px-8 md:px-16 py-10 md:py-12 flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
     {{-- Left --}}
     <div class="flex-1 flex flex-col gap-8 reveal">
-      <h1 class="text-4xl md:text-5xl lg:text-[56px] font-medium leading-[1.1] text-h-dark">
-        Odkryj spokój i siłę<br>Twojego ciała
+      <h1 class="text-3xl md:text-3xl lg:text-4xl font-medium leading-[1.1] text-h-dark text-center md:text-left">
+        Strefa Pilates i Relaksacji<br/>dla kobiet 40+ już wkrótce.
       </h1>
       <p class="text-base md:text-lg text-h-gray leading-[1.6] max-w-2xl">
-        Dołącz do strefy premium z ćwiczeniami Pilates i relaksacji, stworzonej specjalnie dla kobiet&nbsp;40+.
-        Poczuj różnicę już od pierwszego tygodnia.
+        Tworzę bezpieczną, uporządkowaną przestrzeń treningową online, która pomoże Ci wrócić do regularności i poczuć realne efekty.
       </p>
 
       <div class="flex flex-col gap-4 max-w-[380px]">
-        <p class="font-mono text-[13px] font-medium text-h-dark tracking-wide">Zapisz się na listę mailingową</p>
-        <a href="#zapisz-sie"
-           class="h-[52px] rounded-sm bg-gold-dark text-white text-[15px] font-medium flex items-center justify-center btn-transition">
-          Zapisz się bezpłatnie
-        </a>
+        <p class="font-mono text-[13px] font-medium text-h-dark tracking-wide">Dołącz do listy oczekujących</p>
+        @livewire('subscribe-form')
       </div>
 
-      <p class="text-[13px] text-h-gray">✓ Bądź na bieżąco z postępami prac nad strefą premium</p>
+      <p class="text-[13px] text-h-gray">✓ Otrzymasz specjalną ofertę dla pierwszych uczestniczek<br/>
+✓ Informację o starcie jako pierwsza</p>
     </div>
 
     {{-- Right – hero image --}}
@@ -200,10 +197,10 @@
     <div class="absolute inset-0 opacity-5 decorative-gold-lines"></div>
 
     <div class="relative max-w-2xl mx-auto text-center">
-      <div class="text-gold text-5xl mb-6 opacity-60">""</div>
+      <div class="text-gold text-5xl mb-6 opacity-60"></div>
       <blockquote class="text-3xl sm:text-4xl text-stone-100 italic leading-snug mb-8">
-        Twoje ciało jest gotowe. Ty też jesteś gotowa.
-        <span class="text-gold">Czas zacząć.</span>
+      Nie musisz zaczynać od rewolucji. 
+        <span class="text-gold">Wystarczy pierwszy spokojny krok.</span>
       </blockquote>
       <div class="w-12 h-px bg-gold/50 mx-auto"></div>
     </div>
@@ -288,11 +285,10 @@
       <div class="text-center mb-12">
         <p class="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Lista oczekujących</p>
         <h2 class="text-4xl sm:text-5xl text-stone-900 mb-4">
-          Zarezerwuj swoje<br><span class="text-gold">miejsce</span>
+          Chcesz być w gronie pierwszych <span class="text-gold">kobiet?</span>
         </h2>
-        <p class="text-stone-500 leading-relaxed">
-          Zostaw swoje imię i email — jako pierwsza dowiesz się o starcie
-          i otrzymasz specjalną ofertę tylko dla osób z listy.
+        <p class="text-stone-500 leading-relaxed text-sm md:text-base">
+          Zostaw swoje imię i e-mail — dam Ci znać jako pierwszej,<br/> gdy otworzę zapisy do strefy premium.
         </p>
         <div class="w-12 h-px bg-gold mx-auto mt-8"></div>
       </div>

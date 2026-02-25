@@ -190,98 +190,139 @@
   {{-- ============================================================
        SECTION: CO OTRZYMASZ
        ============================================================ --}}
-  <section id="korzysci" class="relative z-10 py-24 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
+  <section id="korzysci" class="py-16 md:py-24 px-8 md:px-16 bg-white">
+    <div class="max-w-[1440px] mx-auto flex flex-col gap-16">
 
-      <div class="text-center mb-16">
-        <p class="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Co otrzymasz</p>
-        <h2 class="text-4xl sm:text-5xl text-stone-800 mb-4">
+      {{-- Section header --}}
+      <div class="flex flex-col items-center gap-4 text-center reveal">
+        <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Co otrzymasz</p>
+        <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
           Zaprojektowane dla Ciebie
         </h2>
-        <div class="w-12 h-px bg-gold mx-auto mt-6"></div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{-- Group 1: Jak będziesz się czuć --}}
+      <div class="flex flex-col gap-8">
 
-        <div class="plan-card bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8">
-          <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M15 10l4.553-2.069A1 1 0 0121 8.82V15a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl text-stone-800 mb-2">Ćwiczenia video</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">
-            Starannie dobrane treningi w formacie video — możesz ćwiczyć kiedy chcesz i gdzie chcesz.
-          </p>
+        {{-- Group label --}}
+        <div class="flex items-center gap-6 reveal">
+          <div class="flex-1 h-px bg-h-light"></div>
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary/70 shrink-0">Jak będziesz się czuć</p>
+          <div class="flex-1 h-px bg-h-light"></div>
         </div>
 
-        <div class="plan-card bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8">
-          <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl text-stone-800 mb-2">Dopasowane do 40+</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">
-            Każde ćwiczenie uwzględnia specyficzne potrzeby i możliwości ciała kobiety po czterdziestce.
-          </p>
-        </div>
+        {{-- Cards --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <div class="plan-card bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8">
-          <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
+          <div class="plan-card flex flex-col gap-5 p-8 rounded-sm border border-h-light/60 bg-h-section/40 reveal">
+            <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+              <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] font-medium text-h-dark">Więcej lekkości i swobody ruchu</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">
+                Poczujesz, jak ciało staje się bardziej elastyczne i posłuszne Twoim potrzebom każdego dnia.
+              </p>
+            </div>
           </div>
-          <h3 class="text-xl text-stone-800 mb-2">Ekskluzywny dostęp</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">
-            Jako pierwsza na liście otrzymasz specjalną ofertę startową i dostęp przed premierą.
-          </p>
-        </div>
 
-        <div class="plan-card bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8">
-          <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
-            </svg>
+          <div class="plan-card flex flex-col gap-5 p-8 rounded-sm border border-h-light/60 bg-h-section/40 reveal">
+            <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+              <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] font-medium text-h-dark">Spokojniejszy umysł</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">
+                Techniki oddechu i relaksacji pomogą Ci wyciszyć myśli i lepiej radzić sobie z napięciem.
+              </p>
+            </div>
           </div>
-          <h3 class="text-xl text-stone-800 mb-2">Twoje tempo</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">
-            Bez presji, bez ścigania się z innymi. Postęp na Twoich zasadach, w Twoim rytmie.
-          </p>
-        </div>
 
-        <div class="plan-card bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8">
-          <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
+          <div class="plan-card flex flex-col gap-5 p-8 rounded-sm border border-h-light/60 bg-h-section/40 reveal">
+            <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+              <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] font-medium text-h-dark">Więcej energii na co dzień</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">
+                Regularna praktyka przywraca naturalną witalność i sprawia, że budzisz się z chęcią do działania.
+              </p>
+            </div>
           </div>
-          <h3 class="text-xl text-stone-800 mb-2">Społeczność kobiet</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">
-            Dołącz do grupy inspirujących kobiet, które tak jak Ty postawiły na siebie.
-          </p>
-        </div>
 
-        <div class="plan-card bg-white/70 backdrop-blur-sm border border-gold/15 rounded-sm p-8">
-          <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl text-stone-800 mb-2">Realne efekty</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">
-            Treningi budowane z myślą o skuteczności — siła, mobilność, energii do życia.
-          </p>
         </div>
-
       </div>
+
+      {{-- Group 2: Co konkretnie otrzymasz --}}
+      <div class="flex flex-col gap-8">
+
+        {{-- Group label --}}
+        <div class="flex items-center gap-6 reveal">
+          <div class="flex-1 h-px bg-h-light"></div>
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary/70 shrink-0">Co konkretnie otrzymasz</p>
+          <div class="flex-1 h-px bg-h-light"></div>
+        </div>
+
+        {{-- Cards --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div class="plan-card flex flex-col gap-5 p-8 rounded-sm border border-h-light/60 bg-white reveal">
+            <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+              <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] font-medium text-h-dark">Treningi video dopasowane do 40+</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">
+                Starannie dobrane ćwiczenia w formacie video — bezpieczne, skuteczne i dostępne kiedy chcesz.
+              </p>
+            </div>
+          </div>
+
+          <div class="plan-card flex flex-col gap-5 p-8 rounded-sm border border-h-light/60 bg-white reveal">
+            <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+              <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] font-medium text-h-dark">Program krok po kroku</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">
+                Jasna ścieżka treningowa bez zgadywania — wiesz co dziś ćwiczyć, dlaczego i jak.
+              </p>
+            </div>
+          </div>
+
+          <div class="plan-card flex flex-col gap-5 p-8 rounded-sm border border-h-light/60 bg-white reveal">
+            <div class="w-12 h-12 rounded-sm bg-h-section flex items-center justify-center">
+              <svg class="w-6 h-6 text-h-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-[18px] font-medium text-h-dark">Społeczność kobiet</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">
+                Dołącz do grupy inspirujących kobiet, które tak jak Ty postawiły na siebie i swoje zdrowie.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 

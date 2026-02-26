@@ -9,6 +9,8 @@ Route::get('/', function () {
 
 Route::get('/unsubscribe', UnsubscribeController::class)->name('unsubscribe');
 
+Route::view('/polityka-prywatnosci', 'privacy-policy')->name('privacy-policy');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

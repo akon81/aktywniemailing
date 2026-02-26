@@ -497,7 +497,7 @@
         <div class="flex flex-col gap-4">
           <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">Informacje</p>
           <nav class="flex flex-col gap-2">
-            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Polityka prywatności</a>
+            <a href="{{ route('privacy-policy') }}" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Polityka prywatności</a>
             <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Regulamin</a>
             <a href="#zapisz-sie" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Kontakt</a>
           </nav>

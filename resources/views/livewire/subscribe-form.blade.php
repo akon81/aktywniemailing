@@ -10,7 +10,7 @@
             </div>
             <h3 class="font-display text-3xl text-stone-800 mb-3">Dziękujemy, {{ $name }}!</h3>
             <p class="text-stone-500 text-lg leading-relaxed max-w-sm mx-auto">
-                Twoje miejsce jest zarezerwowane. Napisaliśmy do Ciebie na adres
+                Twoje miejsce jest już zarezerwowane. Napisałam do Ciebie na adres
                 <span class="text-gold font-medium">{{ $email }}</span> — sprawdź skrzynkę.
             </p>
         </div>

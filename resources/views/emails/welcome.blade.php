@@ -212,32 +212,36 @@
             <div class="header-lines"></div>
             <div class="header-inner">
                 <p class="header-label">Aktywnie dla Siebie · Strefa Premium</p>
-                <h1 class="header-title">Twoje miejsce jest<br><em>zarezerwowane</em></h1>
+                <h1 class="header-title">Twoje miejsce jest już<br><em>zarezerwowane</em></h1>
                 <div class="header-divider"></div>
             </div>
         </div>
 
         {{-- Body --}}
         <div class="body">
-            <p class="greeting">Droga {{ $subscriber->name }},</p>
+            <p class="greeting">{{ $subscriber->name }},</p>
 
             <p class="text">
-                Cieszę się, że jesteś! Właśnie dołączyłaś do grona kobiet, które postanowiły
-                zadbać o siebie — świadomie i na swoich zasadach.
+                Dołączyłaś do grona kobiet, które chcą zadbać o siebie spokojnie, bez presji i na własnych zasadach.
             </p>
 
             <p class="text">
-                Strefa Premium jest jeszcze w przygotowaniu, ale Ty już masz swoje miejsce
-                na liście. Jako pierwsza dowiesz się o starcie i otrzymasz specjalną ofertę.
+            Strefa jest jeszcze w przygotowaniu, ale Ty już jesteś na liście oczekujących.
+            Jako jedna z pierwszych.
+                <ul class="expect-list">
+                    <li>dowiesz się o oficjalnym starcie</li>
+                    <li>otrzymasz specjalną ofertę tylko dla zapisanych</li>
+                    <li>uzyskasz wcześniejszy dostęp do platformy</li>
+                </ul>
             </p>
 
             <div class="highlight-box">
-                <p class="highlight-label">Co Cię czeka</p>
+                <p class="highlight-label">Co znajdziesz w Strefie?</p>
                 <ul class="expect-list">
-                    <li>Ćwiczenia video Pilates i relaksacji dla kobiet 40+</li>
+                    <li>Ćwiczenia video Pilates i relaksacji stworzone dla kobiet 40+</li>
                     <li>Treningi dopasowane do Twojego tempa i możliwości</li>
-                    <li>Specjalna oferta startowa tylko dla osób z listy</li>
-                    <li>Dostęp przed oficjalną premierą</li>
+                    <li>Krótkie sesje, które możesz wykonać nawet w zabiegany dzień</li>
+                    <li>Przestrzeń, w której ruch wspiera ciało i koi głowę</li>
                 </ul>
             </div>
 
@@ -247,7 +251,7 @@
 
             <div class="signature">
                 <p class="sign-off">Z serdecznymi pozdrowieniami,</p>
-                <p class="name">Zespół Strefy Premium</p>
+                <p class="name">Klaudia | Aktywnie dla siebie</p>
             </div>
         </div>
 

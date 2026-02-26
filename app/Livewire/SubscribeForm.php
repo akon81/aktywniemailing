@@ -2,9 +2,8 @@
 
 namespace App\Livewire;
 
-use App\Mail\WelcomeMail;
+use App\Jobs\SendWelcomeMail;
 use App\Models\Subscriber;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class SubscribeForm extends Component
@@ -51,7 +50,7 @@ class SubscribeForm extends Component
             ]);
         }
 
-        Mail::to($subscriber->email)->send(new WelcomeMail($subscriber));
+        SendWelcomeMail::dispatch($subscriber);
 
         $this->submitted = true;
     }

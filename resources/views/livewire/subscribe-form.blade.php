@@ -61,6 +61,55 @@
                 </div>
             </div>
 
+            {{-- CONSENTS --}}
+            <div class="flex flex-col gap-3 pt-1">
+
+                {{-- Consent marketing --}}
+                <div>
+                    <label class="flex items-start gap-3 cursor-pointer group">
+                        <div class="relative mt-0.5 shrink-0">
+                            <input
+                                wire:model="consentMarketing"
+                                type="checkbox"
+                                id="consentMarketing"
+                                class="w-4 h-4 rounded-sm border border-stone-300 bg-white/60 text-gold-dark
+                                       focus:ring-2 focus:ring-gold/30 focus:ring-offset-0 cursor-pointer
+                                       transition-colors duration-150"
+                            >
+                        </div>
+                        <span class="text-[12px] text-stone-500 leading-[1.6] group-hover:text-stone-700 transition-colors duration-150">
+                            Wyrażam zgodę na otrzymywanie drogą elektroniczną informacji handlowych dotyczących usług i produktów marki „Aktywnie dla siebie", w tym informacji o starcie Strefy, materiałach edukacyjnych oraz ofertach specjalnych.
+                        </span>
+                    </label>
+                    @error('consentMarketing')
+                        <p class="mt-1.5 text-xs text-rose-400 pl-7">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Consent privacy --}}
+                <div>
+                    <label class="flex items-start gap-3 cursor-pointer group">
+                        <div class="relative mt-0.5 shrink-0">
+                            <input
+                                wire:model="consentPrivacy"
+                                type="checkbox"
+                                id="consentPrivacy"
+                                class="w-4 h-4 rounded-sm border border-stone-300 bg-white/60 text-gold-dark
+                                       focus:ring-2 focus:ring-gold/30 focus:ring-offset-0 cursor-pointer
+                                       transition-colors duration-150"
+                            >
+                        </div>
+                        <span class="text-[12px] text-stone-500 leading-[1.6] group-hover:text-stone-700 transition-colors duration-150">
+                            Zapoznałam/-em się z <a href="{{ route('privacy-policy') }}" target="_blank" class="text-h-primary underline underline-offset-2 hover:text-gold-dark transition-colors">Polityką Prywatności</a> i akceptuję jej treść.
+                        </span>
+                    </label>
+                    @error('consentPrivacy')
+                        <p class="mt-1.5 text-xs text-rose-400 pl-7">{{ $message }}</p>
+                    @enderror
+                </div>
+
+            </div>
+
             {{-- SUBMIT --}}
             <button
                 type="submit"

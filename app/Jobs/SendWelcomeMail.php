@@ -18,6 +18,6 @@ class SendWelcomeMail implements ShouldQueue
 
     public function handle(): void
     {
-        Mail::to($this->subscriber->email)->send(new WelcomeMail($this->subscriber));
+        Mail::to($this->subscriber)->send(new WelcomeMail($this->subscriber));
     }
 }

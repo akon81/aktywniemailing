@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twoje miejsce jest zarezerwowane</title>
+    <title>{{ __('email.welcome_subject') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -211,8 +211,8 @@
         <div class="header">
             <div class="header-lines"></div>
             <div class="header-inner">
-                <p class="header-label">Aktywnie dla Siebie · Strefa Premium</p>
-                <h1 class="header-title">Twoje miejsce jest już<br><em>zarezerwowane</em></h1>
+                <p class="header-label">{{ __('email.header_label') }}</p>
+                <h1 class="header-title">{{ __('email.header_title_line1') }}<br><em>{{ __('email.header_title_em') }}</em></h1>
                 <div class="header-divider"></div>
             </div>
         </div>
@@ -221,56 +221,48 @@
         <div class="body">
             <p class="greeting">{{ $subscriber->name }},</p>
 
-            <p class="text">
-                Dołączyłaś do grona kobiet, które chcą zadbać o siebie spokojnie, bez presji i na własnych zasadach.
-            </p>
+            <p class="text">{{ __('email.intro_1') }}</p>
 
             <p class="text">
-            Strefa jest jeszcze w przygotowaniu, ale Ty już jesteś na liście oczekujących.
-            Jako jedna z pierwszych.
+                {{ __('email.intro_2') }}
                 <ul class="expect-list">
-                    <li>dowiesz się o oficjalnym starcie</li>
-                    <li>otrzymasz specjalną ofertę tylko dla zapisanych</li>
-                    <li>uzyskasz wcześniejszy dostęp do platformy</li>
+                    <li>{{ __('email.expect_item_1') }}</li>
+                    <li>{{ __('email.expect_item_2') }}</li>
+                    <li>{{ __('email.expect_item_3') }}</li>
                 </ul>
             </p>
 
             <div class="highlight-box">
-                <p class="highlight-label">Co znajdziesz w Strefie?</p>
+                <p class="highlight-label">{{ __('email.highlight_label') }}</p>
                 <ul class="expect-list">
-                    <li>Ćwiczenia video Pilates i relaksacji stworzone dla kobiet 40+</li>
-                    <li>Treningi dopasowane do Twojego tempa i możliwości</li>
-                    <li>Krótkie sesje, które możesz wykonać nawet w zabiegany dzień</li>
-                    <li>Przestrzeń, w której ruch wspiera ciało i koi głowę</li>
+                    <li>{{ __('email.highlight_item_1') }}</li>
+                    <li>{{ __('email.highlight_item_2') }}</li>
+                    <li>{{ __('email.highlight_item_3') }}</li>
+                    <li>{{ __('email.highlight_item_4') }}</li>
                 </ul>
             </div>
 
-            <p class="text">
-                Do zobaczenia wkrótce!
-            </p>
+            <p class="text">{{ __('email.outro') }}</p>
 
             <div class="signature">
-                <p class="sign-off">Z serdecznymi pozdrowieniami,</p>
+                <p class="sign-off">{{ __('email.sign_off') }}</p>
                 <p class="name">Klaudia | Aktywnie dla siebie</p>
             </div>
         </div>
 
         {{-- Footer --}}
-        {{-- Footer --}}
         <div class="footer">
             <div class="footer-lines"></div>
             <div class="footer-inner">
-                <p class="brand">Aktywnie dla Siebie · Strefa Premium</p>
-                <p>
-                    Otrzymałaś tę wiadomość, ponieważ zapisałaś się na listę oczekujących.
-                </p>
+                <p class="brand">{{ __('email.header_label') }}</p>
+                <p>{{ __('email.footer_received') }}</p>
                 <p style="margin-top: 10px;">
                     <a href="{{ URL::signedRoute('unsubscribe', ['email' => $subscriber->email]) }}"
                        style="color: #9D7B6F; text-decoration: underline; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em;">
-                        Wypisz się z listy
+                        {{ __('email.footer_unsubscribe') }}
                     </a>
                 </p>
-                <p style="margin-top: 8px;">© {{ date('Y') }} Aktywnie dla Siebie · Wszelkie prawa zastrzeżone</p>
+                <p style="margin-top: 8px;">{{ __('email.footer_copyright', ['year' => date('Y')]) }}</p>
             </div>
         </div>
 

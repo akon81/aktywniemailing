@@ -19,15 +19,11 @@ class WelcomeMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'Witaj na liście! Twoje miejsce jest zarezerwowane',
-        );
+        return new Envelope(subject: __('email.welcome_subject'));
     }
 
     public function content(): Content
     {
-        return new Content(
-            view: 'emails.welcome',
-        );
+        return new Content(view: 'emails.welcome');
     }
 }

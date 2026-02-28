@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subscriber extends Model
+class Subscriber extends Model implements HasLocalePreference
 {
     use HasFactory;
 
@@ -20,7 +21,19 @@ class Subscriber extends Model
         'consent_ip',
         'consent_marketing_text',
         'consent_privacy_text',
+        'country_code',
+        'language',
     ];
+
+    public function preferredLocale(): string
+    {
+        return $this->language;
+    }
+
+    public function isPolish(): bool
+    {
+        return $this->language === 'pl';
+    }
 
     protected function casts(): array
     {

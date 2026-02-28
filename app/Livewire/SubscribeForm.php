@@ -4,13 +4,14 @@ namespace App\Livewire;
 
 use App\Jobs\SendWelcomeMail;
 use App\Models\Subscriber;
+use App\Services\GeoIpService;
 use Livewire\Component;
 
 class SubscribeForm extends Component
 {
-    public const string CONSENT_MARKETING_TEXT = 'Wyrażam zgodę na otrzymywanie drogą elektroniczną informacji handlowych dotyczących usług i produktów marki „Aktywnie dla siebie", w tym informacji o starcie Strefy, materiałach edukacyjnych oraz ofertach specjalnych.';
+    public const CONSENT_MARKETING_TEXT = 'Wyrażam zgodę na otrzymywanie drogą elektroniczną informacji handlowych dotyczących usług i produktów marki „Aktywnie dla siebie", w tym informacji o starcie Strefy, materiałach edukacyjnych oraz ofertach specjalnych.';
 
-    public const string CONSENT_PRIVACY_TEXT = 'Zapoznałam/-em się z Polityką Prywatności i akceptuję jej treść.';
+    public const CONSENT_PRIVACY_TEXT = 'Zapoznałam/-em się z Polityką Prywatności i akceptuję jej treść.';
 
     public string $name = '';
 
@@ -41,7 +42,7 @@ class SubscribeForm extends Component
         'consentPrivacy.accepted' => 'Akceptacja Polityki Prywatności jest wymagana.',
     ];
 
-    public function submit(): void
+    public function submit(GeoIpService $geoIp): void
     {
         $this->errorMessage = null;
 
@@ -49,6 +50,8 @@ class SubscribeForm extends Component
 
         $now = now();
         $ip = request()->ip();
+        $countryCode = $geoIp->detectCountryCode($ip);
+        $language = ($countryCode !== null && $countryCode !== 'PL') ? 'en' : 'pl';
 
         $consentData = [
             'name' => $this->name,
@@ -60,6 +63,8 @@ class SubscribeForm extends Component
             'consent_ip' => $ip,
             'consent_marketing_text' => self::CONSENT_MARKETING_TEXT,
             'consent_privacy_text' => self::CONSENT_PRIVACY_TEXT,
+            'country_code' => $countryCode,
+            'language' => $language,
         ];
 
         $subscriber = Subscriber::where('email', $this->email)->first();
@@ -77,7 +82,7 @@ class SubscribeForm extends Component
         $this->submitted = true;
     }
 
-    public function render()
+    public function render(): \Illuminate\View\View
     {
         return view('livewire.subscribe-form');
     }

@@ -3,6 +3,7 @@
 use App\Jobs\SendWelcomeMail;
 use App\Livewire\SubscribeForm;
 use App\Models\Subscriber;
+use App\Services\GeoIpService;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Livewire;
 
@@ -16,8 +17,14 @@ function subscribeFormData(): array
     ];
 }
 
+beforeEach(function () {
+    $this->geoIp = Mockery::mock(GeoIpService::class);
+    app()->instance(GeoIpService::class, $this->geoIp);
+});
+
 it('dispatches SendWelcomeMail job on new subscription', function () {
     Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
 
     Livewire::test(SubscribeForm::class)
         ->fill(subscribeFormData())
@@ -30,6 +37,7 @@ it('dispatches SendWelcomeMail job on new subscription', function () {
 
 it('creates subscriber and marks as confirmed', function () {
     Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
 
     Livewire::test(SubscribeForm::class)
         ->fill(subscribeFormData())
@@ -42,6 +50,7 @@ it('creates subscriber and marks as confirmed', function () {
 
 it('sets submitted to true after successful subscription', function () {
     Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
 
     Livewire::test(SubscribeForm::class)
         ->fill(subscribeFormData())
@@ -51,6 +60,7 @@ it('sets submitted to true after successful subscription', function () {
 
 it('dispatches SendWelcomeMail job when re-subscribing with existing email', function () {
     Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
 
     $subscriber = Subscriber::factory()->create(['email' => 'jan@example.com', 'status' => 'unsubscribed']);
 
@@ -67,6 +77,7 @@ it('dispatches SendWelcomeMail job when re-subscribing with existing email', fun
 
 it('stores consent data and IP on subscription', function () {
     Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
 
     Livewire::test(SubscribeForm::class)
         ->fill(subscribeFormData())
@@ -94,4 +105,49 @@ it('fails validation when consents are not checked', function () {
         ->assertHasErrors(['consentMarketing', 'consentPrivacy']);
 
     Queue::assertNothingPushed();
+});
+
+it('saves polish country code and language for Polish subscriber', function () {
+    Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
+
+    Livewire::test(SubscribeForm::class)
+        ->fill(subscribeFormData())
+        ->call('submit');
+
+    $subscriber = Subscriber::where('email', 'jan@example.com')->first();
+
+    expect($subscriber)
+        ->country_code->toBe('PL')
+        ->language->toBe('pl');
+});
+
+it('saves english language for non-Polish subscriber', function () {
+    Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('DE');
+
+    Livewire::test(SubscribeForm::class)
+        ->fill(subscribeFormData())
+        ->call('submit');
+
+    $subscriber = Subscriber::where('email', 'jan@example.com')->first();
+
+    expect($subscriber)
+        ->country_code->toBe('DE')
+        ->language->toBe('en');
+});
+
+it('saves null country code and polish language when geolocation fails', function () {
+    Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn(null);
+
+    Livewire::test(SubscribeForm::class)
+        ->fill(subscribeFormData())
+        ->call('submit');
+
+    $subscriber = Subscriber::where('email', 'jan@example.com')->first();
+
+    expect($subscriber)
+        ->country_code->toBeNull()
+        ->language->toBe('pl');
 });

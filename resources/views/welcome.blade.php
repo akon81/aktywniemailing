@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strefa Premium · Ćwiczenia Video dla Kobiet 40+</title>
-    <meta name="description" content="Strefa premium z ćwiczeniami video stworzona z myślą o kobietach po 40. roku życia. Zapisz się na listę oczekujących.">
+    <title>{{ __('ui.meta_title') }}</title>
+    <meta name="description" content="{{ __('ui.meta_description') }}">
 
     {{-- Fonts – wszystkie trzy rodziny w jednym requeście --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,18 +28,21 @@
 
       {{-- Desktop Nav --}}
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#dlaczego-warto" class="nav-link text-[13px] text-h-gray">Dlaczego warto</a>
-        <a href="#korzysci"       class="nav-link text-[13px] text-h-gray">Co zawiera program</a>
+        <a href="#dlaczego-warto" class="nav-link text-[13px] text-h-gray">{{ __('ui.nav_why') }}</a>
+        <a href="#korzysci"       class="nav-link text-[13px] text-h-gray">{{ __('ui.nav_program') }}</a>
       </nav>
 
-      {{-- Desktop CTA --}}
-      <a href="#zapisz-sie"
-         class="hidden md:inline-flex items-center rounded-sm bg-gold-dark text-white text-[13px] font-medium px-6 py-3 btn-transition">
-        Zapisz się
-      </a>
+      {{-- Desktop CTA + Language switcher --}}
+      <div class="hidden md:flex items-center gap-6">
+        <x-language-switcher />
+        <a href="#zapisz-sie"
+           class="inline-flex items-center rounded-sm bg-gold-dark text-white text-[13px] font-medium px-6 py-3 btn-transition">
+          {{ __('ui.nav_cta') }}
+        </a>
+      </div>
 
       {{-- Mobile hamburger --}}
-      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="{{ __('ui.nav_menu') }}">
         <span class="block w-6 h-0.5 bg-h-dark transition-all duration-300"></span>
         <span class="block w-6 h-0.5 bg-h-dark transition-all duration-300"></span>
         <span class="block w-6 h-0.5 bg-h-dark transition-all duration-300"></span>
@@ -49,13 +52,14 @@
     {{-- Mobile menu --}}
     <div id="mobile-menu" class="md:hidden bg-h-bg border-t border-h-light/40">
       <div class="flex flex-col px-8 py-6 gap-5">
-        <a href="#dlaczego-warto" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Dlaczego warto</a>
-        <a href="#korzysci"       class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">Co zawiera program</a>
+        <a href="#dlaczego-warto" class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">{{ __('ui.nav_why') }}</a>
+        <a href="#korzysci"       class="nav-link text-sm text-h-gray" onclick="closeMobileMenu()">{{ __('ui.nav_program') }}</a>
         <a href="#zapisz-sie"
            class="inline-flex items-center justify-center rounded-sm bg-gold-dark text-white text-sm font-medium px-6 py-3 btn-transition"
            onclick="closeMobileMenu()">
-          Zapisz się
+          {{ __('ui.nav_cta') }}
         </a>
+        <x-language-switcher />
       </div>
     </div>
   </header>
@@ -68,24 +72,24 @@
     {{-- Left --}}
     <div class="flex-1 flex flex-col gap-8 reveal">
       <h1 class="text-3xl md:text-3xl lg:text-4xl font-medium leading-[1.1] text-h-dark text-center md:text-left">
-        Strefa Pilates i Relaksacji<br/>dla kobiet 40+ już wkrótce.
+        {!! __('ui.hero_title') !!}
       </h1>
       <p class="text-base md:text-lg text-h-gray leading-[1.6] max-w-2xl">
-        Tworzę bezpieczną, uporządkowaną przestrzeń treningową online, która pomoże Ci wrócić do regularności i poczuć realne efekty.
+        {{ __('ui.hero_description') }}
       </p>
 
       <div class="flex flex-col gap-4 max-w-[380px]">
-        <p class="font-mono text-[13px] font-medium text-h-dark tracking-wide">Dołącz do listy oczekujących</p>
+        <p class="font-mono text-[13px] font-medium text-h-dark tracking-wide">{{ __('ui.hero_waiting_list_label') }}</p>
         @livewire('subscribe-form')
       </div>
 
-      <p class="text-[13px] text-h-gray">✓ Otrzymasz specjalną ofertę dla pierwszych uczestniczek<br/>
-✓ Informację o starcie jako pierwsza</p>
+      <p class="text-[13px] text-h-gray">{{ __('ui.hero_benefit_1') }}<br/>
+{{ __('ui.hero_benefit_2') }}</p>
     </div>
 
     {{-- Right – hero image --}}
     <div class="flex-1 rounded-sm overflow-hidden min-h-[320px] md:min-h-[500px] reveal">
-      <img src="{{ asset('img/hero/hero.jpg') }}" alt="Kobieta ćwicząca Pilates" class="w-full h-full object-cover">
+      <img src="{{ asset('img/hero/hero.jpg') }}" alt="{{ __('ui.hero_img_alt') }}" class="w-full h-full object-cover">
     </div>
   </section>
 
@@ -101,9 +105,9 @@
 
         {{-- Header --}}
         <div class="flex flex-col gap-4 reveal">
-          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Czy to o Tobie?</p>
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">{{ __('ui.problem_label') }}</p>
           <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
-            Znasz to uczucie?
+            {{ __('ui.problem_title') }}
           </h2>
         </div>
 
@@ -111,11 +115,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
 
           <div class="flex flex-col">
-            @foreach([
-              'Zaczynasz ćwiczyć, ale trudno Ci utrzymać regularność.',
-              'Brakuje Ci spokojnego planu dopasowanego do Twojego wieku.',
-              'Ciało nie reaguje już tak jak kiedyś — i nie wiesz dlaczego.',
-            ] as $i => $point)
+            @foreach([__('ui.problem_item_1'), __('ui.problem_item_2'), __('ui.problem_item_3')] as $i => $point)
             <div class="flex items-start gap-5 py-5 {{ $i > 0 ? 'border-t border-h-light/70' : '' }} reveal">
               <span class="font-mono text-[11px] text-h-primary/60 mt-1 shrink-0 w-5 text-right">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
               <p class="text-[15px] text-h-gray leading-[1.7]">{{ $point }}</p>
@@ -124,11 +124,7 @@
           </div>
 
           <div class="flex flex-col">
-            @foreach([
-              'Pojawia się napięcie w plecach, sztywność, brak energii.',
-              'Chcesz ćwiczyć, ale nie wiesz od czego zacząć.',
-              'Masz wrażenie, że wszystkie programy online są dla kogoś innego.',
-            ] as $i => $point)
+            @foreach([__('ui.problem_item_4'), __('ui.problem_item_5'), __('ui.problem_item_6')] as $i => $point)
             <div class="flex items-start gap-5 py-5 {{ $i > 0 ? 'border-t border-h-light/70' : '' }} reveal">
               <span class="font-mono text-[11px] text-h-primary/60 mt-1 shrink-0 w-5 text-right">{{ str_pad($i + 4, 2, '0', STR_PAD_LEFT) }}</span>
               <p class="text-[15px] text-h-gray leading-[1.7]">{{ $point }}</p>
@@ -155,9 +151,9 @@
 
         {{-- Left – statement --}}
         <div class="flex flex-col gap-5 md:flex-1">
-          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Dlatego to tworzę</p>
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">{{ __('ui.promise_label') }}</p>
           <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
-            Strefę Premium<br>dla kobiet 40+
+            {!! __('ui.promise_title') !!}
           </h2>
         </div>
 
@@ -167,15 +163,14 @@
         {{-- Right – description --}}
         <div class="flex flex-col gap-6 md:flex-1">
           <p class="text-[17px] text-h-dark font-medium leading-[1.6] italic">
-            "Bez presji. Bez przypadkowych treningów z internetu."
+            {{ __('ui.promise_quote') }}
           </p>
           <p class="text-[15px] text-h-gray leading-[1.75]">
-            Z jasnym planem, spokojnym tempem i realnymi efektami —
-            dopasowanymi do ciała i rytmu życia kobiety po czterdziestce.
+            {{ __('ui.promise_description') }}
           </p>
           <a href="#zapisz-sie"
              class="self-start inline-flex items-center gap-2 text-[13px] font-medium text-h-primary hover:text-h-dark transition-colors duration-200">
-            Dołącz do listy oczekujących
+            {{ __('ui.promise_cta') }}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
             </svg>
@@ -195,9 +190,9 @@
 
       {{-- Section header --}}
       <div class="flex flex-col items-center gap-4 text-center reveal">
-        <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Co otrzymasz</p>
+        <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">{{ __('ui.benefits_label') }}</p>
         <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
-          Zaprojektowane dla Ciebie
+          {{ __('ui.benefits_title') }}
         </h2>
       </div>
 
@@ -207,7 +202,7 @@
         {{-- Group label --}}
         <div class="flex items-center gap-6 reveal">
           <div class="flex-1 h-px bg-h-light"></div>
-          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary/70 shrink-0">Jak będziesz się czuć</p>
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary/70 shrink-0">{{ __('ui.benefits_feel_label') }}</p>
           <div class="flex-1 h-px bg-h-light"></div>
         </div>
 
@@ -222,10 +217,8 @@
               </svg>
             </div>
             <div class="flex flex-col gap-2">
-              <h3 class="text-[18px] font-medium text-h-dark">Więcej lekkości i swobody ruchu</h3>
-              <p class="text-[14px] text-h-gray leading-[1.7]">
-                Poczujesz, jak ciało staje się bardziej elastyczne i posłuszne Twoim potrzebom każdego dnia.
-              </p>
+              <h3 class="text-[18px] font-medium text-h-dark">{{ __('ui.benefits_feel_1_title') }}</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">{{ __('ui.benefits_feel_1_desc') }}</p>
             </div>
           </div>
 
@@ -237,10 +230,8 @@
               </svg>
             </div>
             <div class="flex flex-col gap-2">
-              <h3 class="text-[18px] font-medium text-h-dark">Spokojniejszy umysł</h3>
-              <p class="text-[14px] text-h-gray leading-[1.7]">
-                Techniki oddechu i relaksacji pomogą Ci wyciszyć myśli i lepiej radzić sobie z napięciem.
-              </p>
+              <h3 class="text-[18px] font-medium text-h-dark">{{ __('ui.benefits_feel_2_title') }}</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">{{ __('ui.benefits_feel_2_desc') }}</p>
             </div>
           </div>
 
@@ -252,10 +243,8 @@
               </svg>
             </div>
             <div class="flex flex-col gap-2">
-              <h3 class="text-[18px] font-medium text-h-dark">Więcej energii na co dzień</h3>
-              <p class="text-[14px] text-h-gray leading-[1.7]">
-                Regularna praktyka przywraca naturalną witalność i sprawia, że budzisz się z chęcią do działania.
-              </p>
+              <h3 class="text-[18px] font-medium text-h-dark">{{ __('ui.benefits_feel_3_title') }}</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">{{ __('ui.benefits_feel_3_desc') }}</p>
             </div>
           </div>
 
@@ -268,7 +257,7 @@
         {{-- Group label --}}
         <div class="flex items-center gap-6 reveal">
           <div class="flex-1 h-px bg-h-light"></div>
-          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary/70 shrink-0">Co konkretnie otrzymasz</p>
+          <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary/70 shrink-0">{{ __('ui.benefits_get_label') }}</p>
           <div class="flex-1 h-px bg-h-light"></div>
         </div>
 
@@ -283,10 +272,8 @@
               </svg>
             </div>
             <div class="flex flex-col gap-2">
-              <h3 class="text-[18px] font-medium text-h-dark">Treningi video dopasowane do 40+</h3>
-              <p class="text-[14px] text-h-gray leading-[1.7]">
-                Starannie dobrane ćwiczenia w formacie video — bezpieczne, skuteczne i dostępne kiedy chcesz.
-              </p>
+              <h3 class="text-[18px] font-medium text-h-dark">{{ __('ui.benefits_get_1_title') }}</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">{{ __('ui.benefits_get_1_desc') }}</p>
             </div>
           </div>
 
@@ -298,10 +285,8 @@
               </svg>
             </div>
             <div class="flex flex-col gap-2">
-              <h3 class="text-[18px] font-medium text-h-dark">Program krok po kroku</h3>
-              <p class="text-[14px] text-h-gray leading-[1.7]">
-                Jasna ścieżka treningowa bez zgadywania — wiesz co dziś ćwiczyć, dlaczego i jak.
-              </p>
+              <h3 class="text-[18px] font-medium text-h-dark">{{ __('ui.benefits_get_2_title') }}</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">{{ __('ui.benefits_get_2_desc') }}</p>
             </div>
           </div>
 
@@ -313,10 +298,8 @@
               </svg>
             </div>
             <div class="flex flex-col gap-2">
-              <h3 class="text-[18px] font-medium text-h-dark">Społeczność kobiet</h3>
-              <p class="text-[14px] text-h-gray leading-[1.7]">
-                Dołącz do grupy inspirujących kobiet, które tak jak Ty postawiły na siebie i swoje zdrowie.
-              </p>
+              <h3 class="text-[18px] font-medium text-h-dark">{{ __('ui.benefits_get_3_title') }}</h3>
+              <p class="text-[14px] text-h-gray leading-[1.7]">{{ __('ui.benefits_get_3_desc') }}</p>
             </div>
           </div>
 
@@ -337,8 +320,8 @@
     <div class="relative max-w-2xl mx-auto text-center">
       <div class="text-gold text-5xl mb-6 opacity-60"></div>
       <blockquote class="text-3xl sm:text-4xl text-stone-100 italic leading-snug mb-8">
-      Nie musisz zaczynać od rewolucji. 
-        <span class="text-gold">Wystarczy pierwszy spokojny krok.</span>
+        {{ __('ui.quote_line_1') }}
+        <span class="text-gold">{{ __('ui.quote_line_2') }}</span>
       </blockquote>
       <div class="w-12 h-px bg-gold/50 mx-auto"></div>
     </div>
@@ -351,12 +334,12 @@
 
     {{-- Header --}}
     <div class="flex flex-col items-center gap-4 text-center reveal">
-      <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Dla kogo jest program</p>
+      <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">{{ __('ui.for_whom_label') }}</p>
       <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
-        Twoja transformacja zaczyna się tutaj
+        {{ __('ui.for_whom_title') }}
       </h2>
       <p class="text-base md:text-lg text-h-gray max-w-xl">
-        Program stworzony z myślą o Tobie — łącząc ruch, oddech i spokój umysłu
+        {{ __('ui.for_whom_description') }}
       </p>
     </div>
 
@@ -371,10 +354,8 @@
           </svg>
         </div>
         <div class="flex flex-col gap-3">
-          <h3 class="text-[20px] font-medium text-h-dark">Ruch (Pilates)</h3>
-          <p class="text-[15px] text-h-gray leading-[1.6]">
-            Wzmocnij głębokie mięśnie i popraw elastyczność dzięki Pilates dopasowanemu do kobiet 40+.
-          </p>
+          <h3 class="text-[20px] font-medium text-h-dark">{{ __('ui.for_whom_1_title') }}</h3>
+          <p class="text-[15px] text-h-gray leading-[1.6]">{{ __('ui.for_whom_1_desc') }}</p>
         </div>
       </div>
 
@@ -386,10 +367,8 @@
           </svg>
         </div>
         <div class="flex flex-col gap-3">
-          <h3 class="text-[20px] font-medium text-h-dark">Oddech i relaks</h3>
-          <p class="text-[15px] text-h-gray leading-[1.6]">
-            Praca z oddechem i relaksacją, która wycisza napięcie i przywraca wewnętrzną równowagę.
-          </p>
+          <h3 class="text-[20px] font-medium text-h-dark">{{ __('ui.for_whom_2_title') }}</h3>
+          <p class="text-[15px] text-h-gray leading-[1.6]">{{ __('ui.for_whom_2_desc') }}</p>
         </div>
       </div>
 
@@ -401,10 +380,8 @@
           </svg>
         </div>
         <div class="flex flex-col gap-3">
-          <h3 class="text-[20px] font-medium text-h-dark">Systematyczność</h3>
-          <p class="text-[15px] text-h-gray leading-[1.6]">
-            Jasny plan, który wyrabia nawyk regularności — i przynosi realne, trwałe efekty.
-          </p>
+          <h3 class="text-[20px] font-medium text-h-dark">{{ __('ui.for_whom_3_title') }}</h3>
+          <p class="text-[15px] text-h-gray leading-[1.6]">{{ __('ui.for_whom_3_desc') }}</p>
         </div>
       </div>
 
@@ -418,9 +395,9 @@
 
     {{-- Header --}}
     <div class="flex flex-col items-center gap-4 text-center reveal">
-      <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">Lista oczekujących</p>
+      <p class="font-mono text-[11px] font-medium tracking-[0.22em] uppercase text-h-primary">{{ __('ui.cta_label') }}</p>
       <h2 class="text-3xl md:text-[40px] font-medium leading-tight text-h-dark">
-        Dlaczego warto zapisać się teraz?
+        {{ __('ui.cta_title') }}
       </h2>
     </div>
 
@@ -428,9 +405,9 @@
     <div class="flex flex-col w-full max-w-2xl gap-0">
 
       @foreach([
-        ['Dostęp przed oficjalną premierą', 'Jako pierwsza dowiesz się o starcie i zyskasz dostęp, zanim program trafi do szerokiej sprzedaży.'],
-        ['Specjalna oferta tylko dla listy', 'Osoby zapisane otrzymają wyjątkowe warunki cenowe niedostępne nigdzie indziej.'],
-        ['Możliwość współtworzenia programu', 'Twoja opinia ma znaczenie — chcę, żeby program odpowiadał na Twoje realne potrzeby.'],
+        [__('ui.cta_item_1_title'), __('ui.cta_item_1_desc')],
+        [__('ui.cta_item_2_title'), __('ui.cta_item_2_desc')],
+        [__('ui.cta_item_3_title'), __('ui.cta_item_3_desc')],
       ] as $i => $item)
       <div class="flex items-start gap-6 py-7 {{ $i > 0 ? 'border-t border-h-light/70' : '' }} reveal">
         <span class="font-mono text-[11px] text-h-primary/50 mt-1 shrink-0 w-5 text-right">{{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}</span>
@@ -452,12 +429,12 @@
     <div class="max-w-xl mx-auto">
 
       <div class="text-center mb-12">
-        <p class="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">Lista oczekujących</p>
+        <p class="text-xs font-semibold tracking-[0.25em] uppercase text-gold mb-4">{{ __('ui.form_section_label') }}</p>
         <h2 class="text-4xl sm:text-5xl text-stone-900 mb-4">
-          Chcesz być w gronie pierwszych <span class="text-gold">kobiet?</span>
+          {!! __('ui.form_section_title') !!}
         </h2>
         <p class="text-stone-500 leading-relaxed text-sm md:text-base">
-          Zostaw swoje imię i e-mail — dam Ci znać jako pierwszej,<br/> gdy otworzę zapisy do strefy premium.
+          {!! __('ui.form_section_description') !!}
         </p>
         <div class="w-12 h-px bg-gold mx-auto mt-8"></div>
       </div>
@@ -486,26 +463,26 @@
         <div class="flex flex-col gap-4">
           <div>
             <p class="text-stone-200 font-medium text-base">Aktywnie dla siebie</p>
-            <p class="text-gold text-sm">Strefa Premium dla kobiet 40+</p>
+            <p class="text-gold text-sm">{{ __('ui.footer_tagline') }}</p>
           </div>
           <p class="text-stone-500 text-sm leading-[1.7]">
-            Ćwiczenia Pilates i relaksacja online.<br>Start już wkrótce.
+            {!! __('ui.footer_description') !!}
           </p>
         </div>
 
         {{-- Blok 2 – Informacje --}}
         <div class="flex flex-col gap-4">
-          <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">Informacje</p>
+          <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">{{ __('ui.footer_info_heading') }}</p>
           <nav class="flex flex-col gap-2">
-            <a href="{{ route('privacy-policy') }}" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Polityka prywatności</a>
-            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Regulamin</a>
-            <a href="#zapisz-sie" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">Kontakt</a>
+            <a href="{{ route('privacy-policy') }}" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_privacy_policy') }}</a>
+            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_terms') }}</a>
+            <a href="#zapisz-sie" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_contact_label') }}</a>
           </nav>
         </div>
 
-        {{-- Blok 3 – Zaufanie --}}
+        {{-- Blok 3 – Kontakt --}}
         <div class="flex flex-col gap-4">
-          <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">Kontakt</p>
+          <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">{{ __('ui.footer_contact_heading') }}</p>
           <a href="mailto:kontakt@aktywniedlasiebie.pl"
              class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">
             kontakt@aktywniedlasiebie.pl
@@ -516,7 +493,7 @@
 
       {{-- Copyright --}}
       <p class="text-xs text-stone-600 mt-8">
-        © {{ date('Y') }} Aktywnie dla siebie · Wszelkie prawa zastrzeżone
+        {{ __('ui.footer_copyright', ['year' => date('Y')]) }}
       </p>
 
     </div>

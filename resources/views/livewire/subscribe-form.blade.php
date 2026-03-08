@@ -8,10 +8,9 @@
                         d="M4.5 12.75l6 6 9-13.5"/>
                 </svg>
             </div>
-            <h3 class="font-display text-3xl text-stone-800 mb-3">Dziękujemy, {{ $name }}!</h3>
+            <h3 class="font-display text-3xl text-stone-800 mb-3">{{ __('ui.form_success_title', ['name' => $name]) }}</h3>
             <p class="text-stone-500 text-lg leading-relaxed max-w-sm mx-auto">
-                Twoje miejsce jest już zarezerwowane. Napisałam do Ciebie na adres
-                <span class="text-gold font-medium">{{ $email }}</span> — sprawdź skrzynkę.
+                {{ __('ui.form_success_body', ['email' => $email]) }}
             </p>
         </div>
     @else
@@ -21,13 +20,13 @@
                 {{-- NAME --}}
                 <div>
                     <label for="name" class="block text-xs font-semibold tracking-widest uppercase text-stone-400 mb-2">
-                        Imię
+                        {{ __('ui.form_name_label') }}
                     </label>
                     <input
                         wire:model="name"
                         type="text"
                         id="name"
-                        placeholder="Twoje imię"
+                        placeholder="{{ __('ui.form_name_placeholder') }}"
                         autocomplete="given-name"
                         class="w-full bg-white/60 border @error('name') border-rose-300 @else border-stone-200 @enderror
                                rounded-sm px-4 py-3.5 text-stone-700 placeholder-stone-300
@@ -42,13 +41,13 @@
                 {{-- EMAIL --}}
                 <div>
                     <label for="email" class="block text-xs font-semibold tracking-widest uppercase text-stone-400 mb-2">
-                        Email
+                        {{ __('ui.form_email_label') }}
                     </label>
                     <input
                         wire:model="email"
                         type="email"
                         id="email"
-                        placeholder="twoj@email.pl"
+                        placeholder="{{ __('ui.form_email_placeholder') }}"
                         autocomplete="email"
                         class="w-full bg-white/60 border @error('email') border-rose-300 @else border-stone-200 @enderror
                                rounded-sm px-4 py-3.5 text-stone-700 placeholder-stone-300
@@ -78,7 +77,7 @@
                             >
                         </div>
                         <span class="text-[12px] text-stone-500 leading-[1.6] group-hover:text-stone-700 transition-colors duration-150">
-                            Wyrażam zgodę na otrzymywanie drogą elektroniczną informacji handlowych dotyczących usług i produktów marki „Aktywnie dla siebie", w tym informacji o starcie Strefy, materiałach edukacyjnych oraz ofertach specjalnych.
+                            {{ __('ui.form_consent_marketing') }}
                         </span>
                     </label>
                     @error('consentMarketing')
@@ -100,7 +99,9 @@
                             >
                         </div>
                         <span class="text-[12px] text-stone-500 leading-[1.6] group-hover:text-stone-700 transition-colors duration-150">
-                            Zapoznałam/-em się z <a href="{{ route('privacy-policy') }}" target="_blank" class="text-h-primary underline underline-offset-2 hover:text-gold-dark transition-colors">Polityką Prywatności</a> i akceptuję jej treść.
+                            {!! __('ui.form_consent_privacy', [
+                                'link' => '<a href="' . route('privacy-policy') . '" target="_blank" class="text-h-primary underline underline-offset-2 hover:text-gold-dark transition-colors">' . __('ui.form_privacy_link_text') . '</a>',
+                            ]) !!}
                         </span>
                     </label>
                     @error('consentPrivacy')
@@ -121,12 +122,12 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                 </svg>
-                <span wire:loading.remove>Dołącz do listy</span>
-                <span wire:loading>Zapisuję...</span>
+                <span wire:loading.remove>{{ __('ui.form_submit') }}</span>
+                <span wire:loading>{{ __('ui.form_submitting') }}</span>
             </button>
 
             <p class="text-center text-xs text-stone-400 leading-relaxed">
-                Tylko informacje o strefie premium. Bez spamu. Możesz się wypisać w każdej chwili.
+                {{ __('ui.form_disclaimer') }}
             </p>
         </form>
     @endif

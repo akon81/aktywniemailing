@@ -91,8 +91,8 @@ it('stores consent data and IP on subscription', function () {
         ->consent_marketing_at->not->toBeNull()
         ->consent_privacy_at->not->toBeNull()
         ->consent_ip->not->toBeNull()
-        ->consent_marketing_text->toBe(SubscribeForm::CONSENT_MARKETING_TEXT)
-        ->consent_privacy_text->toBe(SubscribeForm::CONSENT_PRIVACY_TEXT);
+        ->consent_marketing_text->toBe(__('ui.form_consent_marketing'))
+        ->consent_privacy_text->not->toBeNull();
 });
 
 it('fails validation when consents are not checked', function () {

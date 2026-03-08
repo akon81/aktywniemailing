@@ -9,10 +9,6 @@ use Livewire\Component;
 
 class SubscribeForm extends Component
 {
-    public const CONSENT_MARKETING_TEXT = 'Wyrażam zgodę na otrzymywanie drogą elektroniczną informacji handlowych dotyczących usług i produktów marki „Aktywnie dla siebie", w tym informacji o starcie Strefy, materiałach edukacyjnych oraz ofertach specjalnych.';
-
-    public const CONSENT_PRIVACY_TEXT = 'Zapoznałam/-em się z Polityką Prywatności i akceptuję jej treść.';
-
     public string $name = '';
 
     public string $email = '';
@@ -25,22 +21,28 @@ class SubscribeForm extends Component
 
     public ?string $errorMessage = null;
 
-    protected array $rules = [
-        'name' => 'required|min:2|max:100',
-        'email' => 'required|email|max:255|unique:subscribers,email,NULL,id,status,confirmed',
-        'consentMarketing' => 'accepted',
-        'consentPrivacy' => 'accepted',
-    ];
+    protected function rules(): array
+    {
+        return [
+            'name' => 'required|min:2|max:100',
+            'email' => 'required|email|max:255|unique:subscribers,email,NULL,id,status,confirmed',
+            'consentMarketing' => 'accepted',
+            'consentPrivacy' => 'accepted',
+        ];
+    }
 
-    protected array $messages = [
-        'name.required' => 'Imię jest wymagane.',
-        'name.min' => 'Imię musi mieć co najmniej 2 znaki.',
-        'email.required' => 'Adres email jest wymagany.',
-        'email.email' => 'Podaj prawidłowy adres email.',
-        'email.unique' => 'Ten adres email jest już na liście. Do zobaczenia wkrótce!',
-        'consentMarketing.accepted' => 'Zgoda na komunikację marketingową jest wymagana.',
-        'consentPrivacy.accepted' => 'Akceptacja Polityki Prywatności jest wymagana.',
-    ];
+    protected function messages(): array
+    {
+        return [
+            'name.required' => __('ui.validation_name_required'),
+            'name.min' => __('ui.validation_name_min'),
+            'email.required' => __('ui.validation_email_required'),
+            'email.email' => __('ui.validation_email_invalid'),
+            'email.unique' => __('ui.validation_email_unique'),
+            'consentMarketing.accepted' => __('ui.validation_consent_marketing'),
+            'consentPrivacy.accepted' => __('ui.validation_consent_privacy'),
+        ];
+    }
 
     public function submit(GeoIpService $geoIp): void
     {
@@ -61,8 +63,8 @@ class SubscribeForm extends Component
             'consent_marketing_at' => $now,
             'consent_privacy_at' => $now,
             'consent_ip' => $ip,
-            'consent_marketing_text' => self::CONSENT_MARKETING_TEXT,
-            'consent_privacy_text' => self::CONSENT_PRIVACY_TEXT,
+            'consent_marketing_text' => __('ui.form_consent_marketing'),
+            'consent_privacy_text' => __('ui.form_consent_privacy', ['link' => __('ui.form_privacy_link_text')]),
             'country_code' => $countryCode,
             'language' => $language,
         ];

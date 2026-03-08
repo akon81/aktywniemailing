@@ -30,16 +30,21 @@ Do zrobienia:
 
 ---
 
-## Decyzja do podjęcia przez właściciela
+## Wybrana strategia
 
-> **Do rozstrzygnięcia przed wdrożeniem:**
-> Czy język ma być przełączany **automatycznie** (na podstawie przeglądarki) czy **manualnie** przez przełącznik w nagłówku?
+**✅ Automatyczne wykrywanie + manualny przełącznik PL | EN w nagłówku**
 
-- **Opcja A – Manualnie (przełącznik PL | EN w nagłówku):** Użytkownik sam wybiera język. Wybór zapisywany w sesji. Prostsze, zgodne z RODO.
-- **Opcja B – Automatycznie + możliwość zmiany:** Pierwsza wizyta – język wykrywany z nagłówka `Accept-Language` przeglądarki. Następnie użytkownik może zmienić ręcznie.
-- **Opcja C – Automatycznie bez możliwości zmiany:** Tylko na podstawie przeglądarki.
+Logika działania:
+1. Pierwsza wizyta → brak wpisu w sesji → sprawdź `GeoIpService` (kraj z IP)
+   - Kraj `PL` → ustaw `pl`
+   - Dowolny inny kraj → ustaw `en`
+2. Przy kolejnych odwiedzinach → odczytaj język z sesji (użytkownik mógł zmienić ręcznie)
+3. Przełącznik `PL | EN` w nagłówku zawsze widoczny → zapisuje wybór do sesji
 
-*Poniższy plan zakłada Opcję A lub B (manualne przełączanie).*
+Dlaczego GeoIP a nie `Accept-Language` (przeglądarka)?
+- `GeoIpService` jest już w projekcie i używany przy zapisie subskrybenta
+- Wykrywa kraj na podstawie IP (dokładniejsze dla celu tej strony niż ustawienia przeglądarki)
+- Spójność: ten sam mechanizm co przy wysyłce e-maila
 
 ---
 
@@ -59,13 +64,17 @@ Do zrobienia:
 **Plik do stworzenia:** `app/Http/Middleware/SetLocale.php`
 **Komenda:** `php artisan make:class app/Http/Middleware/SetLocale`
 
-Logika:
-1. Sprawdź sesję: `session('locale')`
-2. Jeśli brak i Opcja B → sprawdź nagłówek `Accept-Language`
-3. Jeśli brak → zostaw domyślny `pl`
-4. Ustaw `App::setLocale($locale)` i `Carbon::setLocale($locale)`
+Logika (w kolejności priorytetów):
+1. Czy w sesji jest `locale`? → użyj go (użytkownik zmienił ręcznie)
+2. Jeśli nie → wykryj kraj z IP przez `GeoIpService`
+   - Kraj `PL` lub brak danych → `pl`
+   - Inny kraj → `en`
+3. Zapisz wykryty język do sesji (żeby nie wykrywać ponownie przy kolejnych żądaniach)
+4. Ustaw `App::setLocale($locale)`
 
 **Rejestracja:** `bootstrap/app.php` → `->withMiddleware()` dla grupy `web`
+
+> **Uwaga:** `GeoIpService` jest już wstrzykiwany w `SubscribeForm`. W middleware należy rozwiązać go przez `app(GeoIpService::class)` lub wyodrębnić detekcję do serwisu.
 
 ---
 

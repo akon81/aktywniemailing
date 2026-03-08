@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\UnsubscribeController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,9 @@ Route::get('/', function () {
 Route::get('/unsubscribe', UnsubscribeController::class)->name('unsubscribe');
 
 Route::view('/polityka-prywatnosci', 'privacy-policy')->name('privacy-policy');
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy.en');
+
+Route::post('/locale/{locale}', LocaleController::class)->name('locale.switch');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

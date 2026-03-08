@@ -4,7 +4,8 @@
       "mcp__laravel-boost__application-info",
       "mcp__laravel-boost__database-schema",
       "Bash(php artisan test --compact --filter=\"reset password screen\")",
-      "mcp__laravel-boost__tinker"
+      "mcp__laravel-boost__tinker",
+      "Bash(php artisan test --compact)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -4,8 +4,8 @@
             @csrf
             <button type="submit"
                 class="{{ app()->getLocale() === $lang
-                    ? 'text-h-dark'
-                    : 'text-h-gray hover:text-h-dark transition-colors duration-200' }}">
+                    ? 'text-h-dark cursor-pointer'
+                    : 'text-h-gray hover:text-h-dark transition-colors duration-200 cursor-pointer' }}">
                 {{ strtoupper($lang) }}
             </button>
         </form>

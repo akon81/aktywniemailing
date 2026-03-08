@@ -6,6 +6,19 @@
     <title>{{ __('ui.meta_title') }}</title>
     <meta name="description" content="{{ __('ui.meta_description') }}">
 
+    {{-- Hreflang --}}
+    <link rel="alternate" hreflang="pl" href="{{ url('/') }}">
+    <link rel="alternate" hreflang="en" href="{{ url('/') }}">
+    <link rel="alternate" hreflang="x-default" href="{{ url('/') }}">
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="{{ __('ui.meta_title') }}">
+    <meta property="og:description" content="{{ __('ui.meta_description') }}">
+    <meta property="og:locale" content="{{ app()->getLocale() === 'pl' ? 'pl_PL' : 'en_US' }}">
+    <meta property="og:locale:alternate" content="{{ app()->getLocale() === 'pl' ? 'en_US' : 'pl_PL' }}">
+
     {{-- Fonts – wszystkie trzy rodziny w jednym requeście --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

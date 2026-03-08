@@ -19,7 +19,7 @@ class WelcomeMail extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: __('email.welcome_subject'));
+        return new Envelope(subject: __('mails.welcome_subject'));
     }
 
     public function content(): Content

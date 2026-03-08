@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('email.welcome_subject') }}</title>
+    <title>{{ __('mails.welcome_subject') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -211,8 +211,8 @@
         <div class="header">
             <div class="header-lines"></div>
             <div class="header-inner">
-                <p class="header-label">{{ __('email.header_label') }}</p>
-                <h1 class="header-title">{{ __('email.header_title_line1') }}<br><em>{{ __('email.header_title_em') }}</em></h1>
+                <p class="header-label">{{ __('mails.header_label') }}</p>
+                <h1 class="header-title">{{ __('mails.header_title_line1') }}<br><em>{{ __('mails.header_title_em') }}</em></h1>
                 <div class="header-divider"></div>
             </div>
         </div>
@@ -221,31 +221,31 @@
         <div class="body">
             <p class="greeting">{{ $subscriber->name }},</p>
 
-            <p class="text">{{ __('email.intro_1') }}</p>
+            <p class="text">{{ __('mails.intro_1') }}</p>
 
             <p class="text">
-                {{ __('email.intro_2') }}
+                {{ __('mails.intro_2') }}
                 <ul class="expect-list">
-                    <li>{{ __('email.expect_item_1') }}</li>
-                    <li>{{ __('email.expect_item_2') }}</li>
-                    <li>{{ __('email.expect_item_3') }}</li>
+                    <li>{{ __('mails.expect_item_1') }}</li>
+                    <li>{{ __('mails.expect_item_2') }}</li>
+                    <li>{{ __('mails.expect_item_3') }}</li>
                 </ul>
             </p>
 
             <div class="highlight-box">
-                <p class="highlight-label">{{ __('email.highlight_label') }}</p>
+                <p class="highlight-label">{{ __('mails.highlight_label') }}</p>
                 <ul class="expect-list">
-                    <li>{{ __('email.highlight_item_1') }}</li>
-                    <li>{{ __('email.highlight_item_2') }}</li>
-                    <li>{{ __('email.highlight_item_3') }}</li>
-                    <li>{{ __('email.highlight_item_4') }}</li>
+                    <li>{{ __('mails.highlight_item_1') }}</li>
+                    <li>{{ __('mails.highlight_item_2') }}</li>
+                    <li>{{ __('mails.highlight_item_3') }}</li>
+                    <li>{{ __('mails.highlight_item_4') }}</li>
                 </ul>
             </div>
 
-            <p class="text">{{ __('email.outro') }}</p>
+            <p class="text">{{ __('mails.outro') }}</p>
 
             <div class="signature">
-                <p class="sign-off">{{ __('email.sign_off') }}</p>
+                <p class="sign-off">{{ __('mails.sign_off') }}</p>
                 <p class="name">Klaudia | Aktywnie dla siebie</p>
             </div>
         </div>
@@ -254,15 +254,15 @@
         <div class="footer">
             <div class="footer-lines"></div>
             <div class="footer-inner">
-                <p class="brand">{{ __('email.header_label') }}</p>
-                <p>{{ __('email.footer_received') }}</p>
+                <p class="brand">{{ __('mails.header_label') }}</p>
+                <p>{{ __('mails.footer_received') }}</p>
                 <p style="margin-top: 10px;">
                     <a href="{{ URL::signedRoute('unsubscribe', ['email' => $subscriber->email]) }}"
                        style="color: #9D7B6F; text-decoration: underline; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em;">
-                        {{ __('email.footer_unsubscribe') }}
+                        {{ __('mails.footer_unsubscribe') }}
                     </a>
                 </p>
-                <p style="margin-top: 8px;">{{ __('email.footer_copyright', ['year' => date('Y')]) }}</p>
+                <p style="margin-top: 8px;">{{ __('mails.footer_copyright', ['year' => date('Y')]) }}</p>
             </div>
         </div>
 

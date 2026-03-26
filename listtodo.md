@@ -43,12 +43,12 @@ Testy: **59/59 ✅**
 
 ### Średni priorytet
 
-- [ ] **Weryfikacja manualna w przeglądarce** – sprawdzić PL i EN na żywo:
+- [x] **Weryfikacja manualna w przeglądarce** – sprawdzić PL i EN na żywo:
   - przełącznik działa w nagłówku
   - formularz wyświetla błędy walidacji w aktywnym języku
   - strona welcome.blade.php w obu językach poprawnie
 
-- [ ] **Podgląd e-maila powitalnego w obu językach** (Mailpit/Mailtrap)
+- [x] **Podgląd e-maila powitalnego w obu językach** (Mailpit/Mailtrap)
   - czy `preferredLocale()` poprawnie ustawia język przed renderem
   - PL dla subskrybenta z `language = 'pl'`
   - EN dla subskrybenta z `language = 'en'`

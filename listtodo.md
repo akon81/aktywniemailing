@@ -1,11 +1,14 @@
 # Status projektu: aktywniemailing
 
-Ostatnia aktualizacja: 2026-03-08
+Ostatnia aktualizacja: 2026-03-26
 Testy: **59/59 ✅**
 
 ---
 
 ## ✅ Wdrożone
+
+### SEO
+- [x] `welcome.blade.php` – hreflang (`pl`/`en`) + `og:locale` w `<head>`
 
 ### Kolejka i maile
 - [x] Wysyłanie maila powitalnego po zapisie – queue + job `SendWelcomeMail`
@@ -37,10 +40,6 @@ Testy: **59/59 ✅**
 ---
 
 ## ❌ Do zrobienia
-
-### Wysoka priorytet
-
-- [x] **SEO: hreflang + og:locale w `<head>` welcome.blade.php**
 
 ### Średni priorytet
 

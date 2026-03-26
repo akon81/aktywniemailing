@@ -512,6 +512,9 @@
     </div>
   </footer>
 
+  {{-- Scroll to Top Button --}}
+  <x-scroll-to-top />
+
   @livewireScripts
 </body>
 </html>

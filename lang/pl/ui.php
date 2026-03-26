@@ -123,6 +123,9 @@ return [
     'footer_contact_label' => 'Kontakt',
     'footer_contact_heading' => 'Kontakt',
     'footer_copyright' => '© :year Aktywnie dla siebie · Wszelkie prawa zastrzeżone',
+
+    // ── Scroll to Top ────────────────────────────────────────────
+    'scroll_to_top_label' => 'Przejdź na górę strony',
     'footer_back_home' => 'Wróć na stronę główną',
 
     // ── Polityka prywatności ─────────────────────────────────────

@@ -151,3 +151,19 @@ it('saves null country code and polish language when geolocation fails', functio
         ->country_code->toBeNull()
         ->language->toBe('pl');
 });
+
+it('uses session locale when subscriber changes language', function () {
+    Queue::fake();
+    $this->geoIp->shouldReceive('detectCountryCode')->once()->andReturn('PL');
+
+    session(['locale' => 'en']);
+
+    Livewire::test(SubscribeForm::class)
+        ->fill(subscribeFormData())
+        ->call('submit');
+
+    $subscriber = Subscriber::where('email', 'jan@example.com')->first();
+
+    expect($subscriber)
+        ->language->toBe('en');
+});

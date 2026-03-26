@@ -53,7 +53,7 @@ class SubscribeForm extends Component
         $now = now();
         $ip = request()->ip();
         $countryCode = $geoIp->detectCountryCode($ip);
-        $language = ($countryCode !== null && $countryCode !== 'PL') ? 'en' : 'pl';
+        $language = session('locale') ?? (($countryCode !== null && $countryCode !== 'PL') ? 'en' : 'pl');
 
         $consentData = [
             'name' => $this->name,

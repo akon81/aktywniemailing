@@ -1,7 +1,7 @@
 # Status projektu: aktywniemailing
 
 Ostatnia aktualizacja: 2026-03-26
-Testy: **59/59 ✅**
+Testy: **60/60 ✅**
 
 ---
 

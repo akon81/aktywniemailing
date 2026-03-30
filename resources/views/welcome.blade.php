@@ -19,11 +19,6 @@
     <meta property="og:locale" content="{{ app()->getLocale() === 'pl' ? 'pl_PL' : 'en_US' }}">
     <meta property="og:locale:alternate" content="{{ app()->getLocale() === 'pl' ? 'en_US' : 'pl_PL' }}">
 
-    {{-- Fonts – wszystkie trzy rodziny w jednym requeście --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>

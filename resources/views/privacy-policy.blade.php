@@ -6,10 +6,6 @@
     <title>{{ __('ui.privacy_title') }} · Aktywnie dla siebie</title>
     <meta name="description" content="{{ __('ui.meta_description') }}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-h-bg font-sora text-h-dark antialiased">

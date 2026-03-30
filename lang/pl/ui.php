@@ -199,19 +199,16 @@ return [
     'privacy_s8_p3' => 'Użytkownik ma również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.',
 
     'privacy_s9_title' => '9. Pliki cookies',
-    'privacy_s9_p1' => 'Strona wykorzystuje pliki cookies w celu:',
-    'privacy_s9_1' => 'prawidłowego działania strony,',
-    'privacy_s9_2' => 'prowadzenia statystyk,',
-    'privacy_s9_3' => 'działań marketingowych.',
-    'privacy_s9_p2' => 'Cookies to niewielkie pliki zapisywane na urządzeniu użytkownika.',
-    'privacy_s9_p3' => 'Użytkownik może w każdej chwili zmienić ustawienia cookies w swojej przeglądarce lub je usunąć. Ograniczenie stosowania cookies może wpłynąć na funkcjonowanie strony.',
+    'privacy_s9_p1' => 'Strona wykorzystuje wyłącznie pliki cookies niezbędne do prawidłowego działania serwisu:',
+    'privacy_s9_1' => 'ciasteczko sesji – utrzymanie stanu zalogowania i preferencji użytkownika (np. wybrany język),',
+    'privacy_s9_2' => 'token CSRF – ochrona formularzy przed atakami typu cross-site request forgery.',
+    'privacy_s9_p2' => 'Są to cookies technicznie niezbędne – nie wymagają zgody użytkownika zgodnie z art. 173 ust. 3 Prawa telekomunikacyjnego.',
+    'privacy_s9_p3' => 'Strona nie wykorzystuje cookies analitycznych, marketingowych ani reklamowych. Użytkownik może w każdej chwili zmienić ustawienia cookies w swojej przeglądarce lub je usunąć. Ograniczenie stosowania cookies może wpłynąć na funkcjonowanie strony.',
 
-    'privacy_s10_title' => '10. Narzędzia analityczne i marketingowe',
-    'privacy_s10_p1' => 'Strona może korzystać z narzędzi takich jak:',
-    'privacy_s10_1' => 'systemy mailingowe,',
-    'privacy_s10_2' => 'narzędzia analityczne (np. do mierzenia ruchu),',
-    'privacy_s10_3' => 'narzędzia reklamowe (np. piksel marketingowy).',
-    'privacy_s10_p2' => 'Narzędzia te mogą wykorzystywać cookies w celu analizy zachowań użytkowników oraz dopasowania treści marketingowych.',
+    'privacy_s10_title' => '10. Narzędzia zewnętrzne',
+    'privacy_s10_p1' => 'Strona korzysta z następujących narzędzi zewnętrznych:',
+    'privacy_s10_1' => 'system mailingowy – do wysyłki wiadomości powitalnych i newslettera.',
+    'privacy_s10_p2' => 'Strona nie korzysta z narzędzi analitycznych (np. Google Analytics) ani reklamowych (np. pikseli marketingowych). Wszystkie czcionki są hostowane lokalnie – żadne dane nie są przesyłane do zewnętrznych serwisów fontów.',
 
     'privacy_s11_title' => '11. Profilowanie',
     'privacy_s11_p1' => 'Dane mogą być wykorzystywane do profilowania w celach marketingowych (np. dopasowanie treści e-maili do zainteresowań użytkownika).',
@@ -226,5 +223,7 @@ return [
 
     'privacy_s13_title' => '13. Zmiany Polityki Prywatności',
     'privacy_s13_p1' => 'Polityka Prywatności może być aktualizowana w przypadku zmian prawnych lub technologicznych. Aktualna wersja zawsze znajduje się na stronie internetowej.',
+
+    'privacy_last_updated' => 'Ostatnia aktualizacja: 30 marca 2026 r.',
 
 ];

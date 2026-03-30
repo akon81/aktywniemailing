@@ -199,19 +199,16 @@ return [
     'privacy_s8_p3' => 'The user also has the right to lodge a complaint with the President of the Personal Data Protection Office.',
 
     'privacy_s9_title' => '9. Cookies',
-    'privacy_s9_p1' => 'The website uses cookies for the purposes of:',
-    'privacy_s9_1' => 'proper functioning of the website,',
-    'privacy_s9_2' => 'statistical analysis,',
-    'privacy_s9_3' => 'marketing activities.',
-    'privacy_s9_p2' => 'Cookies are small files stored on the user\'s device.',
-    'privacy_s9_p3' => 'The user may change cookie settings in their browser or delete them at any time. Restricting the use of cookies may affect the functioning of the website.',
+    'privacy_s9_p1' => 'The website uses only cookies that are strictly necessary for the proper functioning of the service:',
+    'privacy_s9_1' => 'session cookie – maintains login state and user preferences (e.g. selected language),',
+    'privacy_s9_2' => 'CSRF token – protects forms against cross-site request forgery attacks.',
+    'privacy_s9_p2' => 'These are technically necessary cookies – they do not require user consent under applicable law.',
+    'privacy_s9_p3' => 'The website does not use analytical, marketing, or advertising cookies. The user may change cookie settings in their browser or delete them at any time. Restricting the use of cookies may affect the functioning of the website.',
 
-    'privacy_s10_title' => '10. Analytical and marketing tools',
-    'privacy_s10_p1' => 'The website may use tools such as:',
-    'privacy_s10_1' => 'mailing systems,',
-    'privacy_s10_2' => 'analytics tools (e.g. for measuring traffic),',
-    'privacy_s10_3' => 'advertising tools (e.g. marketing pixel).',
-    'privacy_s10_p2' => 'These tools may use cookies to analyse user behaviour and tailor marketing content.',
+    'privacy_s10_title' => '10. External tools',
+    'privacy_s10_p1' => 'The website uses the following external tools:',
+    'privacy_s10_1' => 'mailing system – for sending welcome messages and newsletters.',
+    'privacy_s10_p2' => 'The website does not use analytics tools (e.g. Google Analytics) or advertising tools (e.g. marketing pixels). All fonts are self-hosted – no data is sent to external font services.',
 
     'privacy_s11_title' => '11. Profiling',
     'privacy_s11_p1' => 'Data may be used for profiling for marketing purposes (e.g. tailoring e-mail content to the user\'s interests).',
@@ -226,5 +223,7 @@ return [
 
     'privacy_s13_title' => '13. Changes to the Privacy Policy',
     'privacy_s13_p1' => 'The Privacy Policy may be updated in the event of legal or technological changes. The current version is always available on the website.',
+
+    'privacy_last_updated' => 'Last updated: 30 March 2026',
 
 ];

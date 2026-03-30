@@ -6,6 +6,19 @@
     <title>{{ __('ui.privacy_title') }} · Aktywnie dla siebie</title>
     <meta name="description" content="{{ __('ui.meta_description') }}">
 
+    {{-- Hreflang --}}
+    <link rel="alternate" hreflang="pl" href="{{ route('privacy-policy') }}">
+    <link rel="alternate" hreflang="en" href="{{ route('privacy-policy') }}">
+    <link rel="alternate" hreflang="x-default" href="{{ route('privacy-policy') }}">
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ route('privacy-policy') }}">
+    <meta property="og:title" content="{{ __('ui.privacy_title') }} · Aktywnie dla siebie">
+    <meta property="og:description" content="{{ __('ui.meta_description') }}">
+    <meta property="og:locale" content="{{ app()->getLocale() === 'pl' ? 'pl_PL' : 'en_US' }}">
+    <meta property="og:locale:alternate" content="{{ app()->getLocale() === 'pl' ? 'en_US' : 'pl_PL' }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-h-bg font-sora text-h-dark antialiased">
@@ -206,7 +219,6 @@
           <ul class="flex flex-col gap-2 pl-5">
             <li class="flex items-start gap-2"><span class="mt-2 w-1 h-1 rounded-full bg-gold-dark shrink-0"></span><span>{{ __('ui.privacy_s9_1') }}</span></li>
             <li class="flex items-start gap-2"><span class="mt-2 w-1 h-1 rounded-full bg-gold-dark shrink-0"></span><span>{{ __('ui.privacy_s9_2') }}</span></li>
-            <li class="flex items-start gap-2"><span class="mt-2 w-1 h-1 rounded-full bg-gold-dark shrink-0"></span><span>{{ __('ui.privacy_s9_3') }}</span></li>
           </ul>
           <p>{{ __('ui.privacy_s9_p2') }}</p>
           <p>{{ __('ui.privacy_s9_p3') }}</p>
@@ -222,8 +234,6 @@
           <p>{{ __('ui.privacy_s10_p1') }}</p>
           <ul class="flex flex-col gap-2 pl-5">
             <li class="flex items-start gap-2"><span class="mt-2 w-1 h-1 rounded-full bg-gold-dark shrink-0"></span><span>{{ __('ui.privacy_s10_1') }}</span></li>
-            <li class="flex items-start gap-2"><span class="mt-2 w-1 h-1 rounded-full bg-gold-dark shrink-0"></span><span>{{ __('ui.privacy_s10_2') }}</span></li>
-            <li class="flex items-start gap-2"><span class="mt-2 w-1 h-1 rounded-full bg-gold-dark shrink-0"></span><span>{{ __('ui.privacy_s10_3') }}</span></li>
           </ul>
           <p>{{ __('ui.privacy_s10_p2') }}</p>
         </div>
@@ -268,6 +278,9 @@
 
     </div>
 
+    {{-- Last updated --}}
+    <p class="mt-12 text-[13px] text-h-gray-light font-mono">{{ __('ui.privacy_last_updated') }}</p>
+
     {{-- Back to home --}}
     <div class="mt-16 pt-8 border-t border-h-light/50">
       <a href="{{ route('home') }}"
@@ -307,7 +320,6 @@
           <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">{{ __('ui.footer_info_heading') }}</p>
           <nav class="flex flex-col gap-2">
             <a href="{{ route('privacy-policy') }}" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_privacy_policy') }}</a>
-            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_terms') }}</a>
             <a href="{{ route('home') }}#zapisz-sie" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_contact_label') }}</a>
           </nav>
         </div>

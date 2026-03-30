@@ -483,7 +483,6 @@
           <p class="text-stone-400 text-xs font-medium tracking-[0.18em] uppercase">{{ __('ui.footer_info_heading') }}</p>
           <nav class="flex flex-col gap-2">
             <a href="{{ route('privacy-policy') }}" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_privacy_policy') }}</a>
-            <a href="#" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_terms') }}</a>
             <a href="#zapisz-sie" class="text-stone-500 text-sm hover:text-stone-300 transition-colors duration-200">{{ __('ui.footer_contact_label') }}</a>
           </nav>
         </div>
